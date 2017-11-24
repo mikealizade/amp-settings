@@ -1,0 +1,55 @@
+.guitarists {
+    position: relative;
+    width: 500px;
+    z-index: 100;
+    margin-bottom: 50px;
+
+    ul {
+        position: absolute;
+        width: 100%;
+        min-height: 50px;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        background-color: #fff;
+        box-shadow: 1px 1px 7px rgba(0,0,0,.3);
+        max-height: 330px;
+        overflow: scroll;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+
+    ul.active {
+        opacity: 1;
+    }
+
+    li {
+        padding: 10px 0;
+        font-size: 30px;
+        color: #ef7f10;
+        cursor: pointer;
+        border-bottom: 1px solid #ececec;
+    }
+
+    li:last-child {
+        border: 0;
+    }
+}
+
+input {
+    font-size: 70px;
+    width: 100%;
+    margin-bottom: 0px;
+    background-color: #252525;
+    color: #ff9d3b;
+    border: 0;
+    border-bottom: 2px solid;
+    font-family: Barlow Condensed;
+    padding: 10px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #e6a769;
+    font-size: 40px;
+}

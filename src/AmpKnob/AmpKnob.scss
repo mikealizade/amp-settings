@@ -1,0 +1,151 @@
+.button-container {
+    display: inline-block;
+    position: relative;
+    margin: 100px 15px 0;
+}
+
+.type {
+    margin: 0;
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 100%;
+    text-shadow: hsla(0,0%,40%,.5) 0 -1px 0, hsla(0,0%,100%,.6) 0 2px 1px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.peg {
+    position: absolute;
+    font-size: 14px;
+
+    &:before {
+        content: '|';
+        width: 1px;
+        position: absolute;
+    }
+
+    &.zero {
+        left: 30px;
+        bottom: -20px;
+    }
+
+    &.zero:before {
+        left: 10px;
+        bottom: 13px;
+        transform: rotate(20deg);
+    }
+
+    &.one {
+        left: 6px;
+        bottom: 5px;
+    }
+
+    &.one:before {
+        left: 13px;
+        bottom: 8px;
+        transform: rotate(52deg);
+    }
+
+    &.two {
+        left: -4px;
+        bottom: 37px;
+    }
+
+    &.two:before {
+        left: 15px;
+        bottom: 1px;
+        transform: rotate(90deg);
+    }
+
+    &.three {
+        left: 2px;
+        bottom: 67px;
+    }
+
+    &.three:before {
+        left: 16px;
+        bottom: -3px;
+        transform: rotate(111deg);;
+    }
+
+    &.four {
+        left: 25px;
+        bottom: 93px;
+    }
+
+    &.four:before {
+        left: 11px;
+        bottom: -10px;
+        transform: rotate(146deg);
+    }
+
+    &.five {
+        left: 62px;
+        bottom: 105px;
+    }
+
+    &.five:before {
+        left: 2px;
+        bottom: -14px;
+        transform: rotate(0deg);
+    }
+
+    &.six {
+        left: 96px;
+        bottom: 92px;
+    }
+
+    &.six:before {
+        left: -4px;
+        bottom: -10px;
+        transform: rotate(35deg);
+    }
+
+    &.seven {
+        left: 118px;
+        bottom: 66px;
+    }
+
+    &.seven:before {
+        left: -7px;
+        bottom: -3px;
+        transform: rotate(65deg);
+    }
+
+    &.eight {
+        left: 126px;
+        bottom: 37px;
+    }
+
+    &.eight:before {
+        left: -9px;
+        bottom: 0px;
+        transform: rotate(90deg);
+    }
+
+    &.nine {
+        left: 117px;
+        bottom: 4px;
+    }
+
+    &.nine:before {
+        left: -8px;
+        bottom: 8px;
+        transform: rotate(124deg);
+    }
+
+    &.ten {
+        left: 87px;
+        bottom: -20px;
+    }
+
+    &.ten:before {
+        left: 3px;
+        bottom: 13px;
+        transform: rotate(155deg);
+    }
+}
+
+button { border: none; display: block; }
+a { text-decoration: none; display: block; }
