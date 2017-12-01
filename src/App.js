@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Selector from './Selector/Selector'
+import FeedbackForm from './FeedbackForm/FeedbackForm'
 import {Guitarist} from './Guitarist/Guitarist'
 import {AmpKnob} from './AmpKnob/AmpKnob'
 import './App.scss';
@@ -47,6 +48,7 @@ class App extends Component {
                     <AmpKnob type="Volume" level={volume}/>
                     <AmpKnob type="Reverb" level={reverb}/>
                 </section>
+                <FeedbackForm/>
             </section>
         );
     }

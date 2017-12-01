@@ -47,9 +47,9 @@ input {
     font-family: Barlow Condensed;
     padding: 10px;
     outline: none;
-}
 
-input::placeholder {
-    color: #e6a769;
-    font-size: 40px;
+    &::placeholder {
+        color: #e6a769;
+        font-size: 40px;
+    }
 }
