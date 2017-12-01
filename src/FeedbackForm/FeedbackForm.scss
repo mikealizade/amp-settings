@@ -106,4 +106,8 @@
             text-decoration: none;
         }
     }
+
+    [class*="--error"]{
+        background-color: #ffd5d5;
+    }
 }

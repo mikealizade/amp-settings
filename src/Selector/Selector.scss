@@ -16,11 +16,13 @@
         max-height: 330px;
         overflow: scroll;
         opacity: 0;
+        visibility: hidden;
         transition: opacity .3s;
     }
 
     ul.active {
         opacity: 1;
+        visibility: visible;
     }
 
     li {
