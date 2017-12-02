@@ -13,14 +13,14 @@ export default class FeedbackForm extends React.Component {
             isFormOpen: false,
             name: '',
             message: '',
-            error: false
+            errorName: false,
+            errorMessage: false
         }
     }
 
     updateEntry(e){
-        let t = e.target;
         this.setState({
-            [t.name]: t.value
+            [e.target.name]:  e.target.value
         })
     }
 
@@ -30,7 +30,8 @@ export default class FeedbackForm extends React.Component {
 
         if(name === '' || message === '') {
             this.setState({
-                error: true
+                errorName: name === '',
+                errorMessage: message === ''
             });
             return;
         }
@@ -47,7 +48,11 @@ export default class FeedbackForm extends React.Component {
 
         setTimeout(() => {
             this.setState({
-                isFeedbackSent: false
+                isFeedbackSent: false,
+                name: '',
+                message: '',
+                errorName: false,
+                errorMessage: false
             })
         }, 3400);
     }
@@ -60,7 +65,7 @@ export default class FeedbackForm extends React.Component {
 
 
     render() {
-        const { isFeedbackSent, isFormOpen, name, message, error } = this.state;
+        const { isFeedbackSent, isFormOpen, name, message, errorName, errorMessage } = this.state;
 
         return (<section className={`feedback ${isFormOpen ? 'open' : ''}`}>
                     <div>
@@ -69,11 +74,11 @@ export default class FeedbackForm extends React.Component {
                             <h2>Feedback &amp; Suggestions</h2>
                             {!isFeedbackSent ?
                                 <fieldset>
-                                    <p>Please use the form below to provide any feedback or suggestions.</p>
+                                    <p>Please use the form below to provide any feedback, suggestions or other amp settings.</p>
                                     <label htmlFor="feedback__name">Your name</label>
-                                    <input id="feedback__name" name="name" type="text" className={error ? 'feedback__name--error' : ''} value={name} onChange={this.updateEntry}/>
+                                    <input id="feedback__name" name="name" type="text" className={errorName ? 'feedback__name--error' : ''} value={name} onChange={this.updateEntry}/>
                                     <label htmlFor="feedback__message">Your message</label>
-                                    <textarea id="feedback__message" name="message" className={error ? 'feedback__message--error' : ''} value={message} onChange={this.updateEntry}/>
+                                    <textarea id="feedback__message" name="message" className={errorMessage ? 'feedback__message--error' : ''} value={message} onChange={this.updateEntry}/>
                                     <button type="submit" className="btn" onClick={this.submitForm}>Send</button>
                                 </fieldset>
                                 :

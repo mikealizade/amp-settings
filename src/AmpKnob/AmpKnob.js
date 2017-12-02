@@ -8,7 +8,7 @@ const convert = level => {
 export const AmpKnob = ({type, level}) => (
   <div className="button-container">
     <p className="type">{type}</p>
-    <span className="peg zero">0dwd</span>
+    <span className="peg zero">0</span>
     <span className="peg one">1</span>
     <span className="peg two">2</span>
     <span className="peg three">3</span>
