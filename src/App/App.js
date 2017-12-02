@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Selector from './Selector/Selector'
-import {Amp} from './Amp/Amp'
-import FeedbackForm from './FeedbackForm/FeedbackForm'
-import {Guitarist} from './Guitarist/Guitarist'
+import Selector from '../Selector/Selector'
+import {Amp} from '../Amp/Amp'
+import FeedbackForm from '../FeedbackForm/FeedbackForm'
+import {Guitarist} from '../Guitarist/Guitarist'
 import './App.scss';
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
     }
 
     render() {
-        const {name, song} = this.state.selected
+        const {name, song} = this.state.selected;
 
         return (
             <section className="content">

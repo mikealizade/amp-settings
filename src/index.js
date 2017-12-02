@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './App/App';
 
 //Redux
 //Node BE serving data, sending email from form submissions
