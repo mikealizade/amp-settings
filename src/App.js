@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Selector from './Selector/Selector'
+import {Amp} from './Amp/Amp'
 import FeedbackForm from './FeedbackForm/FeedbackForm'
 import {Guitarist} from './Guitarist/Guitarist'
-import {AmpKnob} from './AmpKnob/AmpKnob'
 import './App.scss';
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
     }
 
     render() {
-        const {name, song, gain, treble, mid, bass, volume, reverb} = this.state.selected
+        const {name, song} = this.state.selected
 
         return (
             <section className="content">
@@ -40,14 +40,7 @@ class App extends Component {
                     that you would like to see on the site.</p>
                 <Selector selectGuitarist={this.selectGuitarist}/>
                 <Guitarist name={name} song={song}/>
-                <section className="amp linear">
-                    <AmpKnob type="Gain" level={gain}/>
-                    <AmpKnob type="Treble" level={treble}/>
-                    <AmpKnob type="Mid" level={mid}/>
-                    <AmpKnob type="Bass" level={bass}/>
-                    <AmpKnob type="Volume" level={volume}/>
-                    <AmpKnob type="Reverb" level={reverb}/>
-                </section>
+                <Amp {...this.state.selected}/>
                 <FeedbackForm/>
             </section>
         );
