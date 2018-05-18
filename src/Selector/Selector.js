@@ -35,13 +35,13 @@ export default class Selector extends React.Component {
   }
 
   render() {
-    const { isActive } = this.state
+    const { isActive, placeholder, guitarists } = this.state;
 
     return (<div className="guitarists">
-      <input type="text" placeholder={this.state.placeholder} onChange={this.searchGuitarists} ref={el => this.input = el} defaultValue=''/>
+      <input type="text" placeholder={placeholder} onChange={this.searchGuitarists} ref={el => this.input = el} defaultValue=''/>
       <ul className={isActive ? 'active' : ''}>{
-        this.state.guitarists.map((guitarist, i) => {
-          return <li key={i} onClick={() => {this.selectGuitarist(guitarist)}}>{guitarist.name}</li>
+        guitarists.map(({ name }, i) => {
+          return <li key={name.replace(/\s/g, '-')} onClick={() => {this.selectGuitarist(guitarist)}}>{ name }</li>
         })
       }
       </ul>
