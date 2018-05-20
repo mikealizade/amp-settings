@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
-import Selector from '../Selector/Selector'
-import {Amp} from '../Amp/Amp'
-import FeedbackForm from '../FeedbackForm/FeedbackForm'
-import {Guitarist} from '../Guitarist/Guitarist'
+import React, { Component } from 'react';
+import Selector from '../Selector/Selector';
+import { Amp } from '../Amp/Amp';
+import FeedbackForm from '../FeedbackForm/FeedbackForm';
+import { Guitarist } from '../Guitarist/Guitarist';
 import './App.scss';
 
 class App extends Component {
     constructor(props) {
-        super(props)
-        this.selectGuitarist = this.selectGuitarist.bind(this)
+        super(props);
+        this.selectGuitarist = this.selectGuitarist.bind(this);
         this.state = {
             selected: {
                 name: '',
@@ -18,19 +18,19 @@ class App extends Component {
                 mid: 0,
                 bass: 0,
                 volume: 0,
-                reverb: 0
-            }
-        }
+                reverb: 0,
+            },
+        };
     }
 
     selectGuitarist(guitarist) {
         this.setState({
-            selected: guitarist
-        })
+            selected: guitarist,
+        });
     }
 
     render() {
-        const {name, song} = this.state.selected;
+        const { name, song } = this.state.selected
 
         return (
             <section className="content">
