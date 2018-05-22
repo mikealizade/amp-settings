@@ -1,50 +1,51 @@
-import React from 'react'
-import Guitarists from './guitarists'
+import React from 'react';
+import Guitarists from './guitarists';
 import './Selector.scss';
 
 export default class Selector extends React.Component {
   constructor (props) {
-    super(props)
-    this.searchGuitarists = this.searchGuitarists.bind(this)
-    this.selectGuitarist = this.selectGuitarist.bind(this)
+    super(props);
+    this.searchGuitarists = this.searchGuitarists.bind(this);
+    this.selectGuitarist = this.selectGuitarist.bind(this);
 
     this.state = {
       guitarists: [],
       isActive: false,
-      placeholder:  'Start typing the guitarist\'s name'
-    }
+      placeholder: 'Start typing the guitarist\'s name'
+    };
   }
 
-  searchGuitarists(e){
-    let entry = e.target.value
-    let items = Guitarists.filter((item, i) => entry !== '' && item.name.toLowerCase().indexOf(entry.toLowerCase()) !== -1)
+  searchGuitarists (e) {
+    const entry = e.target.value;
+    const items = Guitarists.filter((item, i) => entry !== '' && item.name.toLowerCase().indexOf(entry.toLowerCase()) !== -1);
     this.setState({
       guitarists: items,
       isActive: items.length > 0
-    })
+    });
   }
 
-  selectGuitarist(guitarist){
-    this.props.selectGuitarist(guitarist)
+  selectGuitarist (guitarist) {
+    this.props.selectGuitarist(guitarist);
     this.setState({
       isActive: false,
       placeholder: ''
-    })
-    this.input.value = ''
-    this.input.focus()
+    });
+    this.input.value = '';
+    this.input.focus();
   }
 
-  render() {
+  render () {
     const { isActive, placeholder, guitarists } = this.state;
 
-    return (<div className="guitarists">
-      <input type="text" placeholder={placeholder} onChange={this.searchGuitarists} ref={el => this.input = el} defaultValue=''/>
+    return (<div className='guitarists'>
+      <input type='text' placeholder={placeholder} onChange={this.searchGuitarists} ref={el => { this.input = el; }} defaultValue='' />cvxcvxc
       <ul className={isActive ? 'active' : ''}>{
-        guitarists.map(({ name }, i) => {
-          return <li key={name.replace(/\s/g, '-')} onClick={() => {this.selectGuitarist(guitarist)}}>{ name }</li>
+        guitarists.map((guitarist, i) => {
+          const { name } = guitarist;
+          return <li key={name.replace(/\s/g, '-')} onClick={() => { this.selectGuitarist(guitarist); }}>{ name }</li>;
         })
       }
       </ul>
-    </div>)
+    </div>);
   }
 }
