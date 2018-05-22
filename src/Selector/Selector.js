@@ -38,7 +38,7 @@ export default class Selector extends React.Component {
     const { isActive, placeholder, guitarists } = this.state;
 
     return (<div className='guitarists'>
-        <input type='text' placeholder={placeholder} onChange={this.searchGuitarists} ref={el => { this.input = el; }} defaultValue='' />test
+      <input type='text' placeholder={placeholder} onChange={this.searchGuitarists} ref={el => { this.input = el; }} defaultValue='' />eeeeeeeee
       <ul className={isActive ? 'active' : ''}>{
         guitarists.map((guitarist, i) => {
           const { name } = guitarist;
