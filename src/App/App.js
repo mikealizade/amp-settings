@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import Selector from '../Selector/Selector';
 import { Amp } from '../Amp/Amp';
+import { Intro } from './Intro';
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
 import { Guitarist } from '../Guitarist/Guitarist';
 import './App.scss';
@@ -8,7 +10,6 @@ import './App.scss';
 class App extends Component {
   constructor (props) {
     super(props);
-    this.selectGuitarist = this.selectGuitarist.bind(this);
     this.state = {
       selected: {
         name: '',
@@ -23,10 +24,20 @@ class App extends Component {
     };
   }
 
-  selectGuitarist (guitarist) {
+  selectGuitarist = (guitarist) => {
     this.setState({
       selected: guitarist
     });
+  }
+
+  componentDidMount(){
+    this.props.fetchAllGuitarists()
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log('=============allGuitarists==============');
+    console.log(nextProps.allGuitarists);
+    console.log('====================================');
   }
 
   render () {
@@ -34,11 +45,8 @@ class App extends Component {
 
     return (
       <section className='content'>
-        <p className='intro'>Welcome to Guitarist Amp Settings. This site aims to help guitarists find their
-                    favourite artists' amplifier settings with minimal fuss or effort.</p>
-        <p className='intro'>Please use the feedback form for any suggestions, improvements or any amp settingscddcsdcsd
-                    that you would like to see on the site.</p>
-        <Selector selectGuitarist={this.selectGuitarist} />
+        <Intro/>
+        <Selector selectGuitarist={this.selectGuitarist}  allGuitarists={this.props.allGuitarists}/>
         <Guitarist name={name} song={song} />
         <Amp {...this.state.selected} />
         <FeedbackForm />
@@ -47,4 +55,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({app}) => {
+  return {
+    allGuitarists : app
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAllGuitarists: () => dispatch({ type: "FETCH_ALL_GUITARISTS" })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

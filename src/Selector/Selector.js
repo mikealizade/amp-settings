@@ -1,12 +1,10 @@
 import React from 'react';
-import Guitarists from './guitarists';
+//import Guitarists from './guitarists';
 import './Selector.scss';
 
 export default class Selector extends React.Component {
   constructor (props) {
     super(props);
-    this.searchGuitarists = this.searchGuitarists.bind(this);
-    this.selectGuitarist = this.selectGuitarist.bind(this);
 
     this.state = {
       guitarists: [],
@@ -15,17 +13,17 @@ export default class Selector extends React.Component {
     };
   }
 
-  searchGuitarists (e) {
-    const entry = e.target.value;
-    const items = Guitarists.filter((item, i) => entry !== '' && item.name.toLowerCase().indexOf(entry.toLowerCase()) !== -1);
+  searchGuitarists = ({ target : { value } }) => {
+    const items = this.props.allGuitarists.filter((item, i) => value !== '' && item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1);
     this.setState({
       guitarists: items,
       isActive: items.length > 0
     });
   }
 
-  selectGuitarist (guitarist) {
+  selectGuitarist = guitarist => () => {
     this.props.selectGuitarist(guitarist);
+    guitarist
     this.setState({
       isActive: false,
       placeholder: ''
@@ -38,11 +36,11 @@ export default class Selector extends React.Component {
     const { isActive, placeholder, guitarists } = this.state;
 
     return (<div className='guitarists'>
-      <input type='text' placeholder={placeholder} onChange={this.searchGuitarists} ref={el => { this.input = el; }} defaultValue='' />eeeeeeeee
+      <input type='text' placeholder={placeholder} onChange={this.searchGuitarists} ref={el => { this.input = el; }} defaultValue='' />
       <ul className={isActive ? 'active' : ''}>{
         guitarists.map((guitarist, i) => {
           const { name } = guitarist;
-          return <li key={name.replace(/\s/g, '-')} onClick={() => { this.selectGuitarist(guitarist); }}>{ name }</li>;
+          return <li key={name.replace(/\s/g, '-')} onClick={this.selectGuitarist(guitarist)}>{ name }</li>;
         })
       }
       </ul>
