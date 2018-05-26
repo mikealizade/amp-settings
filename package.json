@@ -20,12 +20,26 @@
   "name": "app-settings",
   "scripts": {
     "compile": "webpack",
-    "lint": "semistandard -v | snazzy",
+    "lint": "semistandard --fix -v | snazzy",
     "precommit": "npm run test | npm run lint",
     "test": "jest",
     "server": "nodemon server.js",
     "client": "webpack-dev-server --open -d",
     "dev": "npm run client"
+  },
+  "semistandard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect",
+      "fetch"
+    ]
   },
   "version": "1.0.0",
   "devDependencies": {

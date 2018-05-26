@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import Selector from '../Selector/Selector';
 import { Amp } from '../Amp/Amp';
 import { Intro } from './Intro';
@@ -24,17 +24,17 @@ class App extends Component {
     };
   }
 
-  selectGuitarist = (guitarist) => {
+  selectGuitarist = guitarist => {
     this.setState({
       selected: guitarist
     });
   }
 
-  componentDidMount(){
-    this.props.fetchAllGuitarists()
+  componentDidMount () {
+    this.props.fetchAllGuitarists();
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps (nextProps) {
     console.log('=============allGuitarists==============');
     console.log(nextProps.allGuitarists);
     console.log('====================================');
@@ -45,8 +45,8 @@ class App extends Component {
 
     return (
       <section className='content'>
-        <Intro/>
-        <Selector selectGuitarist={this.selectGuitarist}  allGuitarists={this.props.allGuitarists}/>
+        <Intro />
+        <Selector selectGuitarist={this.selectGuitarist} allGuitarists={this.props.allGuitarists} />
         <Guitarist name={name} song={song} />
         <Amp {...this.state.selected} />
         <FeedbackForm />
@@ -57,13 +57,13 @@ class App extends Component {
 
 const mapStateToProps = ({app}) => {
   return {
-    allGuitarists : app
+    allGuitarists: app
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllGuitarists: () => dispatch({ type: "FETCH_ALL_GUITARISTS" })
+    fetchAllGuitarists: () => dispatch({ type: 'FETCH_ALL_GUITARISTS' })
   };
 };
 

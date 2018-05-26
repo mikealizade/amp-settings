@@ -1,12 +1,12 @@
-var express = require('express')
-var app = express();
-var router = express.Router()
-var request = require('request')
-var cors = require('cors')
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const express = require('express');
+const app = express();
+const router = express.Router();
+// const request = require('request');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var schemaName = new Schema({
+const schemaName = new Schema({
   name: String,
   song: String,
   gain: Number,
@@ -16,13 +16,13 @@ var schemaName = new Schema({
   volume: Number,
   reverb: Number
 }, {
-	collection: 'ampsettings'
+  collection: 'ampsettings'
 });
 
-var Model = mongoose.model('Model', schemaName);
+const Model = mongoose.model('Model', schemaName);
 mongoose.connect('mongodb://localhost:27017/ampsettings');
 
-//var guitarists = require('./guitarist')
+// var guitarists = require('./guitarist')
 
 // var corsOption = {
 //   origin: true,
@@ -33,25 +33,25 @@ mongoose.connect('mongodb://localhost:27017/ampsettings');
 // app.use(cors(corsOption));
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
-app.get('/', cors(), function(req, res) {
-	Model.find((err, result) =>  {
-		if (err) throw err;
-		if (result) {
-			res.json(result)
-		} else {
-			res.send(JSON.stringify({
-				error : 'Error'
-			}))
-		}
-	})
-})
+app.get('/', cors(), function (req, res) {
+  Model.find((err, result) => {
+    if (err) throw err;
+    if (result) {
+      res.json(result);
+    } else {
+      res.send(JSON.stringify({
+        error: 'Error'
+      }));
+    }
+  });
+});
 
-router.route('/health-check').get(function(req, res) {
+router.route('/health-check').get(function (req, res) {
   res.status(200);
   res.send('Hello World');
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-//import Guitarists from './guitarists';
+// import Guitarists from './guitarists';
 import './Selector.scss';
 
 export default class Selector extends React.Component {
@@ -13,7 +13,7 @@ export default class Selector extends React.Component {
     };
   }
 
-  searchGuitarists = ({ target : { value } }) => {
+  searchGuitarists = ({ target: { value } }) => {
     const items = this.props.allGuitarists.filter((item, i) => value !== '' && item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1);
     this.setState({
       guitarists: items,
@@ -23,7 +23,6 @@ export default class Selector extends React.Component {
 
   selectGuitarist = guitarist => () => {
     this.props.selectGuitarist(guitarist);
-    guitarist
     this.setState({
       isActive: false,
       placeholder: ''
