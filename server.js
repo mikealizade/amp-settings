@@ -16,11 +16,12 @@ const schemaName = new Schema({
   volume: Number,
   reverb: Number
 }, {
-  collection: 'ampsettings'
+  collection: 'guitarists'
 });
 
 const Model = mongoose.model('Model', schemaName);
-mongoose.connect('mongodb://localhost:27017/ampsettings');
+// mongoose.connect('mongodb://localhost:27017/ampsettings');
+mongoose.connect('mongodb://mike:mongo@ds237620.mlab.com:37620/ampsettings');
 
 // var guitarists = require('./guitarist')
 
@@ -42,6 +43,9 @@ app.get('/', cors(), function (req, res) {
   Model.find((err, result) => {
     if (err) throw err;
     if (result) {
+      console.log('====================================');
+      console.log(result);
+      console.log('====================================');
       res.json(result);
     } else {
       res.send(JSON.stringify({

@@ -5,7 +5,7 @@ export default (state = [], action) => {
     case 'FETCH_GUITARISTS_SUCCESS':
       return [
         ...state,
-        ...action.response
+        ...action.guitarists
       ];
     default:
       return state;

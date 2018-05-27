@@ -34,12 +34,6 @@ class App extends Component {
     this.props.fetchAllGuitarists();
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log('=============allGuitarists==============');
-    console.log(nextProps.allGuitarists);
-    console.log('====================================');
-  }
-
   render () {
     const { name, song } = this.state.selected;
 
