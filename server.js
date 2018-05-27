@@ -43,9 +43,6 @@ app.get('/', cors(), function (req, res) {
   Model.find((err, result) => {
     if (err) throw err;
     if (result) {
-      console.log('====================================');
-      console.log(result);
-      console.log('====================================');
       res.json(result);
     } else {
       res.send(JSON.stringify({
