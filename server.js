@@ -39,7 +39,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', cors(), function (req, res) {
+app.get('/guitarists', cors(), function (req, res) {
   Model.find((err, result) => {
     if (err) throw err;
     if (result) {

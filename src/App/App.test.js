@@ -5,7 +5,6 @@ import React, { Fragment } from 'react';
 import renderer from 'react-test-renderer';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Intro } from './Intro';
 
 configure({ adapter: new Adapter() });
 
