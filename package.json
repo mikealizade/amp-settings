@@ -85,6 +85,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "jest": {
+    "setupFiles": ["raf/polyfill"],
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/styleMock.js"
     }
