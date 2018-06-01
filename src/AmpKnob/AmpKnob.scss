@@ -37,8 +37,8 @@
     }
 
     &.one {
-        left: 6px;
-        bottom: 5px;
+        left: 5px;
+        bottom: 3px;
     }
 
     &.one:before {
@@ -59,7 +59,7 @@
     }
 
     &.three {
-        left: 2px;
+        left: -2px;
         bottom: 67px;
     }
 
@@ -70,8 +70,8 @@
     }
 
     &.four {
-        left: 25px;
-        bottom: 93px;
+        left: 22px;
+        bottom: 95px;
     }
 
     &.four:before {
@@ -81,8 +81,8 @@
     }
 
     &.five {
-        left: 62px;
-        bottom: 105px;
+        left: 61px;
+        bottom: 108px;
     }
 
     &.five:before {
@@ -92,8 +92,8 @@
     }
 
     &.six {
-        left: 96px;
-        bottom: 92px;
+        left: 97px;
+        bottom: 94px;
     }
 
     &.six:before {
@@ -239,19 +239,7 @@ button {
     }
 }
 
-.knob {
-    position: relative;
-    display: inline-block;
-    position: relative;
-    outline: none;
-    margin: 0 20px;
-
-
-    font: bold 2em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-    text-align: center;
-    color: hsla(0,0%,20%,1);
-    text-shadow: hsla(0,0%,40%,.5) 0 -1px 0, hsla(0,0%,100%,.6) 0 2px 1px;
-
+.knob-container {
     background-color: hsl(0,0%,90%);
     box-shadow: inset hsla(0,0%,15%,  1) 0  0px 0px 4px, /* border */
     inset hsla(0,0%,15%, .8) 0 -1px 5px 4px, /* soft SD */
@@ -260,7 +248,18 @@ button {
 
     hsla(0,0%, 0%,.15) 0 -5px 6px 4px, /* outer SD */
     hsla(0,0%,100%,.5) 0  5px 6px 4px; /* outer HL */
+    border-radius: 80px;
+    margin: 0px 12px;
+    height: 100px;
+    width: 100px;
+}
 
+.knob {
+    margin: 5px;
+    font: bold 2em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    text-align: center;
+    color: hsla(0,0%,20%,1);
+    text-shadow: hsla(0,0%,40%,.5) 0 -1px 0, hsla(0,0%,100%,.6) 0 2px 1px;
     transition: color .2s;
     transition: all 1s;
 }
@@ -312,5 +311,5 @@ button {
     hsl(0, 0%, 70%) 100%);
 }
 
-button { border: none; display: block; }
+button { border: none; }
 a { text-decoration: none; display: block; }

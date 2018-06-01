@@ -19,6 +19,8 @@ export const AmpKnob = ({type, level}) => (
     <span className='peg eight'>8</span>
     <span className='peg nine'>9</span>
     <span className='peg ten'>10</span>
-    <button className={`knob radial level-${convert(level)}`}><span>I</span></button>
+    <div className='knob-container'>
+      <button className={`knob radial level-${convert(level)}`}><span>I</span></button>
+    </div>
   </div>
 );
