@@ -24,7 +24,7 @@ sagaMiddleware.run(watchFetchData);
 // production build and deployment (codeship?)
 // expanding app - users / login / favourites etc
 
-// codeship test 2
+// codeship test 3
 
 ReactDOM.render(
   <Provider store={store}>
