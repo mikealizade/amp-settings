@@ -23,7 +23,7 @@
     "compile": "webpack",
     "lint": "semistandard --fix -v | snazzy",
     "precommit": "npm run test | npm run lint",
-    "test": "jest --setupTestFrameworkScriptFile=raf/polyfill",
+    "test": "jest",
     "server": "nodemon server.js",
     "client": "webpack-dev-server --open -d",
     "start": "npm run client | npm run server",
