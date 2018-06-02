@@ -52,14 +52,11 @@ app.get('/guitarists', cors(), function (req, res) {
   });
 });
 
-router.route('/health-check').get(function (req, res) {
-  res.status(200);
-  res.send('Hello World');
-});
-
 app.use('/', router);
 
-const server = app.listen(3001, function () {
+const port = process.env.PORT;
+
+const server = app.listen(port, function () {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
