@@ -20,15 +20,7 @@
   "main": "index.js",
   "name": "app-settings",
   "scripts": {
-    "compile": "webpack",
-    "lint": "semistandard --fix -v | snazzy",
-    "precommit": "npm run test | npm run lint",
-    "test": "jest",
-    "server": "nodemon server.js",
-    "client": "webpack-dev-server --open -d",
-    "start": "npm run client | npm run server",
-    "dev": "webpack --mode development",
-    "prod": "webpack --mode production"
+    "start": "node server.js"
   },
   "semistandard": {
     "parser": "babel-eslint",
