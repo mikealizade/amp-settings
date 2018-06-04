@@ -52,7 +52,7 @@ app.get('/guitarists', cors(), function (req, res) {
   });
 });
 
-app.use(express.static(__dirname, '/public'));
+app.use(express.static(__dirname + '/public'));
 //app.use("/public", express.static(__dirname + '/public'));
 
 app.use('/', router);
@@ -63,5 +63,5 @@ const port = process.env.PORT || 5000;
 const server = app.listen(port, function () {
   const host = server.address().address;
   const port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('App listening at http://%s:%s', host, port);
 });
