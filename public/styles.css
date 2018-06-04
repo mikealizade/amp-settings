@@ -147,7 +147,8 @@ input {
 
 .peg {
   position: absolute;
-  font-size: 14px; }
+  font-size: 14px;
+  text-shadow: rgba(102, 102, 102, 0.5) 0 -1px 0, rgba(255, 255, 255, 0.6) 0 2px 1px; }
   .peg:before {
     content: '|';
     width: 1px;
@@ -160,8 +161,8 @@ input {
     bottom: 13px;
     transform: rotate(20deg); }
   .peg.one {
-    left: 6px;
-    bottom: 5px; }
+    left: 5px;
+    bottom: 3px; }
   .peg.one:before {
     left: 13px;
     bottom: 8px;
@@ -174,29 +175,29 @@ input {
     bottom: 1px;
     transform: rotate(90deg); }
   .peg.three {
-    left: 2px;
+    left: -2px;
     bottom: 67px; }
   .peg.three:before {
     left: 16px;
     bottom: -3px;
     transform: rotate(111deg); }
   .peg.four {
-    left: 25px;
-    bottom: 93px; }
+    left: 22px;
+    bottom: 95px; }
   .peg.four:before {
     left: 11px;
     bottom: -10px;
     transform: rotate(146deg); }
   .peg.five {
-    left: 62px;
-    bottom: 105px; }
+    left: 61px;
+    bottom: 108px; }
   .peg.five:before {
     left: 2px;
     bottom: -14px;
     transform: rotate(0deg); }
   .peg.six {
-    left: 96px;
-    bottom: 92px; }
+    left: 97px;
+    bottom: 94px; }
   .peg.six:before {
     left: -4px;
     bottom: -10px;
@@ -298,19 +299,21 @@ button.level-9-5 {
 button.level-10 {
   transform: rotate(150deg); }
 
+.knob-container {
+  background-color: #e6e6e6;
+  box-shadow: inset #262626 0 0px 0px 4px, inset rgba(38, 38, 38, 0.8) 0 -1px 5px 4px, inset rgba(0, 0, 0, 0.25) 0 -1px 0px 7px, inset rgba(255, 255, 255, 0.7) 0 2px 1px 7px, rgba(0, 0, 0, 0.15) 0 -5px 6px 4px, rgba(255, 255, 255, 0.5) 0 5px 6px 4px;
+  /* outer HL */
+  border-radius: 80px;
+  margin: 0px 12px;
+  height: 100px;
+  width: 100px; }
+
 .knob {
-  position: relative;
-  display: inline-block;
-  position: relative;
-  outline: none;
-  margin: 0 20px;
+  margin: 5px;
   font: bold 2em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
   text-align: center;
   color: #333333;
   text-shadow: rgba(102, 102, 102, 0.5) 0 -1px 0, rgba(255, 255, 255, 0.6) 0 2px 1px;
-  background-color: #e6e6e6;
-  box-shadow: inset #262626 0 0px 0px 4px, inset rgba(38, 38, 38, 0.8) 0 -1px 5px 4px, inset rgba(0, 0, 0, 0.25) 0 -1px 0px 7px, inset rgba(255, 255, 255, 0.7) 0 2px 1px 7px, rgba(0, 0, 0, 0.15) 0 -5px 6px 4px, rgba(255, 255, 255, 0.5) 0 5px 6px 4px;
-  /* outer HL */
   transition: color .2s;
   transition: all 1s; }
 
@@ -342,8 +345,7 @@ button.level-10 {
   background-image: -webkit-repeating-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 6%, rgba(255, 255, 255, 0.1) 7.5%), -webkit-repeating-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 4%, rgba(0, 0, 0, 0.03) 4.5%), -webkit-repeating-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 1.2%, rgba(255, 255, 255, 0.15) 2.2%), linear-gradient(180deg, #c7c7c7 0%, #e6e6e6 47%, #c7c7c7 53%, #b3b3b3 100%); }
 
 button {
-  border: none;
-  display: block; }
+  border: none; }
 
 a {
   text-decoration: none;

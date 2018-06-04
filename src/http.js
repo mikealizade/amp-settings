@@ -1,4 +1,5 @@
-const BASE_ENDPOINT_URL = 'http://localhost:3001';
+//const BASE_ENDPOINT_URL = 'http://localhost:3001';
+const BASE_ENDPOINT_URL = 'https://amp-settings.herokuapp.com';
 
 export default {
 
