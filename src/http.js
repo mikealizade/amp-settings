@@ -2,7 +2,9 @@ const BASE_ENDPOINT_URL = process.env.NODE_ENV === 'development' ? 'http://local
 
 console.log('==================process.env.NODE_ENV==================');
 console.log(process.env.NODE_ENV);
-console.log(BASE_ENDPOINT_URL);
+console.log(process.env.PORT);
+console.log(process.env.BASE_ENDPOINT_URL);
+//console.log(BASE_ENDPOINT_URL);
 console.log('=====================sds===============');
 
 export default {
