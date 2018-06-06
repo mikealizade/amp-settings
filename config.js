@@ -9,7 +9,7 @@ const config = {
     db: 'mongodb://mike:mongo@ds237620.mlab.com:37620/ampsettings',
     dbLocal: 'mongodb://localhost:27017/ampsetting'
   },
-  prod: {
+  production: {
     env,
     port: process.env.PORT || 5000,
     baseEndpointUrl: process.env.BASE_ENDPOINT_URL || 'https://amp-settings.herokuapp.com',
