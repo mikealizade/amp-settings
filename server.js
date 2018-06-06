@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 // const request = require('request');
+const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const config = require('./config');
 
 const schemaName = new Schema({
   name: String,
@@ -20,8 +22,7 @@ const schemaName = new Schema({
 });
 
 const Model = mongoose.model('Model', schemaName);
-// mongoose.connect('mongodb://localhost:27017/ampsettings');
-mongoose.connect('mongodb://mike:mongo@ds237620.mlab.com:37620/ampsettings');
+mongoose.connect(config.db);
 
 // var guitarists = require('./guitarist')
 
@@ -52,14 +53,17 @@ app.get('/guitarists', cors(), function (req, res) {
   });
 });
 
-app.use(express.static(__dirname + '/public'));
-
+app.use(express.static(path.join(__dirname, '/public')));
 app.use('/', router);
 
-const port = process.env.PORT || 5000;
+console.log('====================================');
+console.log(1, config.port);
+console.log(2, config.env);
+console.log(2, config.baseEndpointUrl);
+console.log(3, config.db);
+console.log('====================================');
 
-//const server = app.listen(3001, function () {
-const server = app.listen(port, function () {
+const server = app.listen(config.port, function () {
   const host = server.address().address;
   const port = server.address().port;
   console.log('App listening at http://%s:%s', host, port);

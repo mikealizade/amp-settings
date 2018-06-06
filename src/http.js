@@ -1,5 +1,9 @@
-//const BASE_ENDPOINT_URL = 'http://localhost:3001';
-const BASE_ENDPOINT_URL = 'https://amp-settings.herokuapp.com';
+const BASE_ENDPOINT_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://amp-settings.herokuapp.com';
+
+console.log('==================process.env.NODE_ENV==================');
+console.log(process.env.NODE_ENV);
+console.log(BASE_ENDPOINT_URL);
+console.log('=====================sds===============');
 
 export default {
 
