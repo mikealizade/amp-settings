@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 // const request = require('request');
-const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -53,7 +52,7 @@ app.get('/guitarists', cors(), function (req, res) {
   });
 });
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(__dirname + '/public'));
 app.use('/', router);
 
 console.log('====================================');

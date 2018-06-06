@@ -44,6 +44,9 @@
       "expect",
       "fetch",
       "jest"
+    ],
+    "ignore": [
+      "server.js"
     ]
   },
   "version": "1.0.0",
