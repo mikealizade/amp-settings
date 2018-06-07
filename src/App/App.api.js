@@ -6,6 +6,6 @@ export const fetchAllGuitarists = async () => {
     const response = await http.fetch('/guitarists');
     return await response.json();
   } catch (error) {
-    console.log('error retrieving user', error);
+    console.log('error retrieving guitarists', error);
   }
 };

@@ -1,24 +1,9 @@
 const BASE_ENDPOINT_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://amp-settings.herokuapp.com';
 
-console.log('==================process.env.NODE_ENV==================');
-console.log(process.env.NODE_ENV);
-console.log(process.env.PORT);
-console.log(process.env.BASE_ENDPOINT_URL);
-// console.log(BASE_ENDPOINT_URL);
-console.log('=====================sds===============');
-
 export default {
 
   fetch (url, body = {}, contentType = 'application/json') {
-    const options = {
-      method: 'get',
-      headers: {
-        'Content-Type': contentType
-      },
-      body
-    };
-
-    return fetch(BASE_ENDPOINT_URL + url, options);
+    return fetch(BASE_ENDPOINT_URL + url);
   },
 
   put (url, data = {}, contentType = 'application/json') {

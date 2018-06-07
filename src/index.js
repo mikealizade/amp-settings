@@ -7,7 +7,7 @@ import { watchFetchData } from './App/App.sagas';
 import reducers from './rootReducer';
 import App from './App/App';
 const sagaMiddleware = createSagaMiddleware();
-const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const reduxDevTools = window.navigator.userAgent.includes('Chrome') ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : compose
 
 let store = createStore(
   reducers,
