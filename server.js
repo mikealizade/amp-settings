@@ -6,6 +6,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const config = require('./config');
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
 
 const schemaName = new Schema({
   name: String,
@@ -39,6 +41,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+
 app.get('/guitarists', cors(), function (req, res) {
   Model.find((err, result) => {
     if (err) throw err;
@@ -51,6 +58,31 @@ app.get('/guitarists', cors(), function (req, res) {
     }
   });
 });
+
+app.post('/send', function(req, res, next) {
+  const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'mike.alizade@gmail.com',
+        pass: 'W00dcutt3r'
+      }
+    })
+
+  const mailOptions = {
+    from: `${req.body.name} mike.alizade@gmail.com`,
+    to: 'mike.alizade@gmail.com',
+    subject: 'Guitar Amp Settings Feedback',
+    text: req.body.message
+  }
+
+  transporter.sendMail(mailOptions, function(err, res) {
+    if (err) {
+      console.error('there was an error: ', err);
+    } else {
+      console.log('here is the res: ', res)
+    }
+  })
+})
 
 app.use(express.static(__dirname + '/public'));
 app.use('/', router);
