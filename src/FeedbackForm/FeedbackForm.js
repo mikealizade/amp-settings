@@ -70,7 +70,7 @@ class FeedbackForm extends React.Component {
 
     return (<div>
       <section className={'feedback'}>
-      <div className='feedback__tab btn' onClick={this.toggleForm}>+</div>
+        <div className='feedback__tab btn' onClick={this.toggleForm}>+</div>
         <div className={`modal ${isFormOpen ? 'open' : ''}`}>
           <form className='feedback__form'>
             <h2>Feedback &amp; Suggestions <span onClick={this.toggleForm}>x</span></h2>
@@ -102,10 +102,9 @@ const mapStateToProps = ({app}) => {
 const mapDispatchToProps = dispatch => {
   return {
     submitForm: formData => {
-      dispatch({ type: 'SUBMIT_FORM', formData })
+      dispatch({ type: 'SUBMIT_FORM', formData });
     }
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedbackForm);
-

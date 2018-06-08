@@ -11,11 +11,10 @@ export const fetchAllGuitarists = async () => {
 
 export const sendEmail = async (name, message) => {
   try {
-
     const data = {
       name,
       message
-    }
+    };
 
     const response = await http.post('/send', data);
     return await response.json();

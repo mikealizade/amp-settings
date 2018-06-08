@@ -23,7 +23,7 @@ const workerSendEmail = function * ({ formData }) {
   } catch (error) {
     yield put({ type: 'SUBMIT_FORM_FAIL', error });
   }
-}
+};
 
 const workerFetchGuitarists = function * () {
   try {
