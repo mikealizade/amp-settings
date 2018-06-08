@@ -1,9 +1,9 @@
-const BASE_ENDPOINT_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://amp-settings.herokuapp.com';
+// const BASE_ENDPOINT_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://amp-settings.herokuapp.com';
 
 export default {
 
-  fetch (url, body = {}, contentType = 'application/json') {
-    return fetch(BASE_ENDPOINT_URL + url);
+  fetch (url) {
+    return fetch(process.env.BASE_ENDPOINT_URL + url);
   },
 
   put (url, data = {}, contentType = 'application/json') {
@@ -15,7 +15,7 @@ export default {
       body: JSON.stringify(data)
     };
 
-    return fetch(BASE_ENDPOINT_URL + url, options);
+    return fetch(process.env.BASE_ENDPOINT_URL + url, options);
   },
 
   post (url, data = {}, contentType = 'application/json') {
@@ -26,7 +26,7 @@ export default {
       },
       body: JSON.stringify(data)
     };
-    return fetch(BASE_ENDPOINT_URL + url, options);
+    return fetch(process.env.BASE_ENDPOINT_URL + url, options);
   },
 
   delete (url, data = {}, contentType = 'application/json') {
@@ -37,6 +37,6 @@ export default {
       },
       body: JSON.stringify(data)
     };
-    return fetch(BASE_ENDPOINT_URL + url, options);
+    return fetch(process.env.BASE_ENDPOINT_URL + url, options);
   }
 };

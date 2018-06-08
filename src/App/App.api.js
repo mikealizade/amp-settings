@@ -1,4 +1,3 @@
-// import * as CONST from './App.constants';
 import http from '../http';
 
 export const fetchAllGuitarists = async () => {

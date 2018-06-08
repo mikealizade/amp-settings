@@ -55,13 +55,6 @@ app.get('/guitarists', cors(), function (req, res) {
 app.use(express.static(__dirname + '/public'));
 app.use('/', router);
 
-console.log('====================================');
-console.log(1, config.port);
-console.log(2, config.env);
-console.log(2, config.baseEndpointUrl);
-console.log(3, config.db);
-console.log('====================================');
-
 const server = app.listen(config.port, function () {
   const host = server.address().address;
   const port = server.address().port;
