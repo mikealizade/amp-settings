@@ -1,12 +1,12 @@
 const path = require('path');
-const dotenv = require('dotenv');
-const webpack = require('webpack');
+//const dotenv = require('dotenv');
+//const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const env = dotenv.config().parsed;
-const envKeys = Object.keys(env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
+// const env = dotenv.config().parsed;
+// const envKeys = Object.keys(env).reduce((prev, next) => {
+//   prev[`process.env.${next}`] = JSON.stringify(env[next]);
+//   return prev;
+// }, {});
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -71,8 +71,8 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin({
       filename: 'styles.css'
-    }),
-    new webpack.DefinePlugin(envKeys)
+    })
+    //new webpack.DefinePlugin(envKeys)
   ],
   resolve: {
     modules: [
