@@ -1,3 +1,6 @@
+@import "../mixins";
+@import "../vars";
+
 .button-container {
     display: inline-block;
     position: relative;
@@ -7,12 +10,16 @@
 .type {
     margin: 0;
     position: absolute;
-    top: -70px;
+    top: -55px;
     left: 0;
     width: 100%;
     text-shadow: hsla(0,0%,40%,.5) 0 -1px 0, hsla(0,0%,100%,.6) 0 2px 1px;
     text-transform: uppercase;
     font-size: 1.2rem;
+
+    @include breakpoint('medium') {
+        top: -70px;
+    }
 }
 
 .peg {

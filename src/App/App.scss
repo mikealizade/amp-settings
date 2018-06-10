@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:regular,bold');
+@import "../vars";
+@import "../mixins";
+
+#root {
+  width: 100%;
+}
 
 body {
   background: #252525;
@@ -8,28 +14,62 @@ body {
 }
 
 .content {
-  width: 1000px;
-  margin: 5% auto;
+  margin: 3% auto;
+  width: 100%;
+
+  @include breakpoint('small') {
+    width: 580px;
+  }
+
+  @include breakpoint('medium') {
+    width: 1000px;
+  }
 }
 
 .amp {
   background-color: #d7d8d6;
-  width: 1000px;
-  height: 300px;
+  width: 335px;
+  height: 650px;
   border-radius: 3px;
   text-align: center;
+  margin: 0 auto;
+
+  @include breakpoint('small') {
+    width: 580px;
+    height: 470px;
+  }
+
+  @include breakpoint('medium') {
+    width: 1000px;
+    height: 300px;
+  }
 }
 
 h1 {
-  font-size: 50px;
-  margin: 0 0 10px;
+  font-size: 40px;
   color: #ff9d3b;
   font-weight: normal;
-  height: 60px;
+  width: 335px;
+  margin: 0 auto 10px;
+
+  @include breakpoint('small') {
+    font-size: 45px;
+    margin: 0 0 10px;
+  }
+
+  @include breakpoint('medium') {
+    font-size: 50px;
+  }
 
   span {
     color: #fff;
     font-size: 30px;
+    display: block;
+
+    @include breakpoint('small') {
+      display: inline-block;
+
+    }  
   }
 }
 
