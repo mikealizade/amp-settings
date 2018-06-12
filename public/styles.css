@@ -29,7 +29,8 @@
     text-decoration: none;
     margin: 0;
     letter-spacing: 1px;
-    height: 70px; }
+    height: 70px;
+    z-index: 100; }
   .feedback form {
     background-color: #fff;
     width: 400px;
@@ -445,7 +446,7 @@ h1 {
   font-size: 40px;
   color: #ff9d3b;
   font-weight: normal;
-  width: 335px;
+  width: 100%;
   margin: 0 auto 10px; }
   @media (min-width: 650px) {
     h1 {
