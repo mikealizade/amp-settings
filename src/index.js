@@ -16,15 +16,15 @@ let store = createStore(
 
 sagaMiddleware.run(watchFetchData);
 
-// env vars
-// make responsive - use css grid
-// node receiving / sending email data
+// more content
+// finish unit tests
 // selecting guitarist brings up another search for his songs
 // add Google Analytics
 // SEO
 // add login
 // node auth and security
 // login => favourites etc
+// node secure email
 
 ReactDOM.render(
   <Provider store={store}>

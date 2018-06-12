@@ -49,7 +49,7 @@ h1 {
   font-size: 40px;
   color: #ff9d3b;
   font-weight: normal;
-  width: 335px;
+  width: 100%;
   margin: 0 auto 10px;
 
   @include breakpoint('small') {
