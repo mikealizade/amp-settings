@@ -51,10 +51,12 @@ h1 {
   font-weight: normal;
   width: 100%;
   margin: 0 auto 10px;
+  height: 80px;
 
   @include breakpoint('small') {
     font-size: 45px;
     margin: 0 0 10px;
+    height: 60px;
   }
 
   @include breakpoint('medium') {
