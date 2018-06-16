@@ -187,7 +187,7 @@ input {
 .button-container {
   display: inline-block;
   position: relative;
-  margin: 100px 15px 0; }
+  margin: 100px 18px 0; }
 
 .type {
   margin: 0;
@@ -209,38 +209,39 @@ input {
   .peg:before {
     content: '|';
     width: 1px;
-    position: absolute; }
+    position: absolute;
+    display: none; }
   .peg.zero {
-    left: 30px;
+    left: 40px;
     bottom: -20px; }
   .peg.zero:before {
     left: 10px;
     bottom: 13px;
     transform: rotate(20deg); }
   .peg.one {
-    left: 5px;
-    bottom: 3px; }
+    left: 12px;
+    bottom: -2px; }
   .peg.one:before {
     left: 13px;
     bottom: 8px;
     transform: rotate(52deg); }
   .peg.two {
-    left: -4px;
-    bottom: 37px; }
+    left: -2px;
+    bottom: 31px; }
   .peg.two:before {
     left: 15px;
     bottom: 1px;
     transform: rotate(90deg); }
   .peg.three {
-    left: -2px;
+    left: -1px;
     bottom: 67px; }
   .peg.three:before {
     left: 16px;
     bottom: -3px;
     transform: rotate(111deg); }
   .peg.four {
-    left: 22px;
-    bottom: 95px; }
+    left: 23px;
+    bottom: 96px; }
   .peg.four:before {
     left: 11px;
     bottom: -10px;
@@ -267,21 +268,21 @@ input {
     bottom: -3px;
     transform: rotate(65deg); }
   .peg.eight {
-    left: 126px;
-    bottom: 37px; }
+    left: 120px;
+    bottom: 32px; }
   .peg.eight:before {
     left: -9px;
     bottom: 0px;
     transform: rotate(90deg); }
   .peg.nine {
-    left: 117px;
-    bottom: 4px; }
+    left: 109px;
+    bottom: 1px; }
   .peg.nine:before {
     left: -8px;
     bottom: 8px;
     transform: rotate(124deg); }
   .peg.ten {
-    left: 87px;
+    left: 80px;
     bottom: -20px; }
   .peg.ten:before {
     left: 3px;
@@ -294,67 +295,67 @@ button span {
   left: 46%; }
 
 button.level-0 {
-  transform: rotate(-153deg); }
+  transform: rotate(-162deg); }
 
 button.level-0-5 {
-  transform: rotate(-138deg); }
+  transform: rotate(-150deg); }
 
 button.level-1 {
-  transform: rotate(-119deg); }
+  transform: rotate(-136deg); }
 
 button.level-1-5 {
-  transform: rotate(-104deg); }
+  transform: rotate(-120deg); }
 
 button.level-2 {
-  transform: rotate(-91deg); }
+  transform: rotate(-102deg); }
 
 button.level-2-5 {
-  transform: rotate(-76deg); }
+  transform: rotate(-82deg); }
 
 button.level-3 {
-  transform: rotate(-61deg); }
+  transform: rotate(-70deg); }
 
 button.level-3-5 {
-  transform: rotate(-46deg); }
+  transform: rotate(-51deg); }
 
 button.level-4 {
-  transform: rotate(-33deg); }
+  transform: rotate(-36deg); }
 
 button.level-4-5 {
-  transform: rotate(-16deg); }
+  transform: rotate(-18deg); }
 
 button.level-5 {
   transform: rotate(0deg); }
 
 button.level-5-5 {
-  transform: rotate(15deg); }
+  transform: rotate(18deg); }
 
 button.level-6 {
-  transform: rotate(30deg); }
+  transform: rotate(37deg); }
 
 button.level-6-5 {
-  transform: rotate(45deg); }
+  transform: rotate(52deg); }
 
 button.level-7 {
-  transform: rotate(60deg); }
+  transform: rotate(65deg); }
 
 button.level-7-5 {
-  transform: rotate(75deg); }
+  transform: rotate(82deg); }
 
 button.level-8 {
-  transform: rotate(90deg); }
+  transform: rotate(100deg); }
 
 button.level-8-5 {
-  transform: rotate(105deg); }
+  transform: rotate(112deg); }
 
 button.level-9 {
-  transform: rotate(120deg); }
+  transform: rotate(127deg); }
 
 button.level-9-5 {
-  transform: rotate(135deg); }
+  transform: rotate(142deg); }
 
 button.level-10 {
-  transform: rotate(150deg); }
+  transform: rotate(156deg); }
 
 .knob-container {
   background-color: #e6e6e6;

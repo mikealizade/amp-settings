@@ -4,7 +4,7 @@
 .button-container {
     display: inline-block;
     position: relative;
-    margin: 100px 15px 0;
+    margin: 100px 18px 0;
 }
 
 .type {
@@ -31,10 +31,11 @@
         content: '|';
         width: 1px;
         position: absolute;
+        display: none;
     }
 
     &.zero {
-        left: 30px;
+        left: 40px;
         bottom: -20px;
     }
 
@@ -45,8 +46,8 @@
     }
 
     &.one {
-        left: 5px;
-        bottom: 3px;
+        left: 12px;
+        bottom: -2px;
     }
 
     &.one:before {
@@ -56,8 +57,8 @@
     }
 
     &.two {
-        left: -4px;
-        bottom: 37px;
+        left: -2px;
+        bottom: 31px;
     }
 
     &.two:before {
@@ -67,7 +68,7 @@
     }
 
     &.three {
-        left: -2px;
+        left: -1px;
         bottom: 67px;
     }
 
@@ -78,8 +79,8 @@
     }
 
     &.four {
-        left: 22px;
-        bottom: 95px;
+        left: 23px;
+        bottom: 96px;
     }
 
     &.four:before {
@@ -122,8 +123,8 @@
     }
 
     &.eight {
-        left: 126px;
-        bottom: 37px;
+        left: 120px;
+        bottom: 32px;
     }
 
     &.eight:before {
@@ -133,8 +134,8 @@
     }
 
     &.nine {
-        left: 117px;
-        bottom: 4px;
+        left: 109px;
+        bottom: 1px;
     }
 
     &.nine:before {
@@ -144,7 +145,7 @@
     }
 
     &.ten {
-        left: 87px;
+        left: 80px;
         bottom: -20px;
     }
 
@@ -163,43 +164,43 @@ button {
     }
 
     &.level-0 {
-        transform: rotate(-153deg)
+        transform: rotate(-162deg)
     }
 
     &.level-0-5 {
-        transform: rotate(-138deg)
+        transform: rotate(-150deg)
     }
 
     &.level-1 {
-        transform: rotate(-119deg);
+        transform: rotate(-136deg);
     }
 
     &.level-1-5 {
-        transform: rotate(-104deg);
+        transform: rotate(-120deg);
     }
 
     &.level-2 {
-        transform: rotate(-91deg);
+        transform: rotate(-102deg);
     }
 
     &.level-2-5 {
-        transform: rotate(-76deg);
+        transform: rotate(-82deg);
     }
 
     &.level-3 {
-        transform: rotate(-61deg);
+        transform: rotate(-70deg);
     }
 
     &.level-3-5 {
-        transform: rotate(-46deg);
+        transform: rotate(-51deg);
     }
 
     &.level-4 {
-        transform: rotate(-33deg);
+        transform: rotate(-36deg);
     }
 
     &.level-4-5 {
-        transform: rotate(-16deg);
+        transform: rotate(-18deg);
     }
 
     &.level-5 {
@@ -207,43 +208,43 @@ button {
     }
 
     &.level-5-5 {
-        transform: rotate(15deg);
+        transform: rotate(18deg);
     }
 
     &.level-6 {
-        transform: rotate(30deg);
+        transform: rotate(37deg);
     }
 
     &.level-6-5 {
-        transform: rotate(45deg);
+        transform: rotate(52deg);
     }
 
     &.level-7 {
-        transform: rotate(60deg);
+        transform: rotate(65deg);
     }
 
     &.level-7-5 {
-        transform: rotate(75deg);
+        transform: rotate(82deg);
     }
 
     &.level-8 {
-        transform: rotate(90deg);
+        transform: rotate(100deg);
     }
 
     &.level-8-5 {
-        transform: rotate(105deg);
+        transform: rotate(112deg);
     }
 
     &.level-9 {
-        transform: rotate(120deg);
+        transform: rotate(127deg);
     }
 
     &.level-9-5 {
-        transform: rotate(135deg);
+        transform: rotate(142deg);
     }
 
     &.level-10 {
-        transform: rotate(150deg);
+        transform: rotate(156deg);
     }
 }
 
