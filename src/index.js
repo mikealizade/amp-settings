@@ -17,9 +17,9 @@ let store = createStore(
 sagaMiddleware.run(watchFetchData);
 
 // more guitarists
+// SEO
 // finish unit tests
 // selecting guitarist brings up another search for his songs
-// SEO
 // add login
 // node auth and security
 // login => favourites etc
