@@ -95,14 +95,14 @@ input {
 
     &::placeholder {
         color: #e6a769;
-        font-size: 40px;
+        font-size: 30px;
     
         @include breakpoint('small') {
-            font-size: 50px;
+            font-size: 40px;
         }
     
         @include breakpoint('medium') {
-            font-size: 60px;
+            font-size: 50px;
         }
     }
 }

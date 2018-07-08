@@ -177,13 +177,13 @@ input {
       font-size: 60px; } }
   input::placeholder {
     color: #e6a769;
-    font-size: 40px; }
+    font-size: 30px; }
     @media (min-width: 650px) {
       input::placeholder {
-        font-size: 50px; } }
+        font-size: 40px; } }
     @media (min-width: 992px) {
       input::placeholder {
-        font-size: 60px; } }
+        font-size: 50px; } }
 .button-container {
   display: inline-block;
   position: relative;
@@ -247,7 +247,7 @@ input {
     bottom: -10px;
     transform: rotate(146deg); }
   .peg.five {
-    left: 61px;
+    left: 59px;
     bottom: 108px; }
   .peg.five:before {
     left: 2px;
