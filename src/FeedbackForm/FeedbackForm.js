@@ -73,7 +73,7 @@ class FeedbackForm extends React.Component {
         <div className='feedback__tab btn' onClick={this.toggleForm}>+</div>
         <div className={`modal ${isFormOpen ? 'open' : ''}`}>
           <form className='feedback__form'>
-            <h2>Feedback &amp; Suggestions <span onClick={this.toggleForm}>x</span></h2>
+            <h2>Feedback and suggestions <span onClick={this.toggleForm}>x</span></h2>
             {!isFeedbackSent
               ? <fieldset>
                 <p>Please use the form below to provide any feedback, suggestions or other amp settings.</p>
