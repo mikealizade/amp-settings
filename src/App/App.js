@@ -11,23 +11,39 @@ import './App.scss';
 class App extends Component {
   constructor (props) {
     super(props);
-    this.state = {
-      selected: {
-        name: '',
-        song: '',
-        gain: 0,
-        treble: 0,
-        mid: 0,
-        bass: 0,
-        volume: 0,
-        reverb: 0
-      }
+    this.initState = {
+      name: '',
+      songs: [
+        {
+          song: '',
+          gain: 0,
+          treble: 0,
+          mid: 0,
+          bass: 0,
+          volume: 0,
+          reverb: 0
+        }
+      ],
+      prevSongs: [],
+      isMulti: false
     };
+
+    this.state = this.initState;
   }
 
-  selectGuitarist = guitarist => {
+  selectGuitarist = ({name, songs}) => {
     this.setState({
-      selected: guitarist
+      name,
+      songs,
+      prevSongs: songs,
+      isMulti: false
+    });
+  }
+
+  selectSong = song => {
+    this.setState({
+      songs: [song],
+      isMulti: true
     });
   }
 
@@ -36,14 +52,16 @@ class App extends Component {
   }
 
   render () {
-    const { name, song } = this.state.selected;
+    const { name, songs, songs: [{song: songName}], prevSongs, isMulti } = this.state;
+    const [song] = songs;
+    const hasSongs = songs.length > 1;
 
     return (
       <section className='content'>
         <Intro />
-        <Selector selectGuitarist={this.selectGuitarist} allGuitarists={this.props.allGuitarists} />
-        <Guitarist name={name} song={song} />
-        <Amp {...this.state.selected} />
+        <Selector prevSongs={isMulti ? prevSongs : []} selectGuitarist={this.selectGuitarist} selectSong={this.selectSong} allGuitarists={this.props.allGuitarists} songs={hasSongs ? songs : []} />
+        <Guitarist name={name} songName={!hasSongs && songName} />
+        <Amp settings={!hasSongs && {...song}} />
         <FeedbackForm />
       </section>
     );

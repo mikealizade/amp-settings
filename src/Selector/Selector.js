@@ -1,4 +1,5 @@
 import React from 'react';
+import { SongSelector } from '../SongSelector/SongSelector';
 import './Selector.scss';
 
 export default class Selector extends React.Component {
@@ -13,10 +14,10 @@ export default class Selector extends React.Component {
   }
 
   searchGuitarists = ({ target: { value } }) => {
-    const items = this.props.allGuitarists.filter(({ name }, i) => value !== '' && name.toLowerCase().includes(value.toLowerCase()));
+    const guitarists = this.props.allGuitarists.filter(({ name }) => value && name.toLowerCase().includes(value.toLowerCase()));
     this.setState({
-      guitarists: items,
-      isActive: items.length > 0
+      guitarists,
+      isActive: guitarists.length > 0
     });
   }
 
@@ -32,17 +33,25 @@ export default class Selector extends React.Component {
 
   render () {
     const { isActive, placeholder, guitarists } = this.state;
+    const { songs, selectSong, prevSongs } = this.props;
 
-    return (<div className='guitarists'>
-      <input type='text' placeholder={placeholder} onChange={this.searchGuitarists} ref={el => { this.input = el; }} defaultValue='' />
-      <ul className={isActive ? 'active' : ''}>
-        {
-          guitarists.map((guitarist, i) => {
-            const { name } = guitarist;
-            return <li key={name} onClick={this.selectGuitarist(guitarist)}>{ name }</li>;
-          })
+    return (
+      <div className='guitarists'>
+        <div className='guitarists-container'>
+          <input type='text' placeholder={placeholder} onChange={this.searchGuitarists} ref={el => { this.input = el; }} defaultValue='' />
+          <ul className={`guitarist-list${isActive ? ' active' : ''}`}>
+            {
+              guitarists.map((guitarist, i) => {
+                const { name } = guitarist;
+                return <li key={`${name}-${i}`} onClick={this.selectGuitarist(guitarist)}>{ name }</li>;
+              })
+            }
+          </ul>
+        </div>
+        {(songs.length || prevSongs) &&
+        <SongSelector songs={songs.length ? songs : prevSongs} selectSong={selectSong} />
         }
-      </ul>
-    </div>);
+      </div>
+    );
   }
 }

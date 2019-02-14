@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Guitarist = ({ name, song }) => (
-  <h1>{name && name} {name && <span>({song})</span>}</h1>
+export const Guitarist = ({ name, songName }) => (
+  <h1>{name && name} {name && songName && <span>({songName})</span>}</h1>
 );

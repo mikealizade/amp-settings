@@ -51,7 +51,7 @@ export default [
   },
   {
     name: 'Noel Gallagher',
-    song: 'Oasis - Don\'t Look Back In Anger',
+    song: "Oasis - Don't Look Back In Anger",
     gain: 5.5,
     treble: 5.5,
     mid: 4,
@@ -330,3 +330,46 @@ export default [
     reverb: 4
   }
 ];
+
+// const moreToInput = [
+//   {
+//     name: 'Scott Gorham',
+//     song: 'Thin Lizzy - Jailbreak',
+//     gain: 4,
+//     treble: 4,
+//     mid: 6,
+//     bass: 7,
+//     volume: 8,
+//     reverb: 3
+//   },
+//   {
+//     name: 'Richie Sambora',
+//     song: 'Bon Jovi - Living On A Prayer',
+//     gain: 6,
+//     treble: 6,
+//     mid: 7,
+//     bass: 5,
+//     volume: 7,
+//     reverb: 2
+//   },
+//   {
+//     name: 'Eric Clapton',
+//     song: 'Wondeful Tonight',
+//     gain: 7,
+//     treble: 5,
+//     mid: 7,
+//     bass: 5,
+//     volume: 7,
+//     reverb: 4
+//   },
+//   {
+//     name: 'John Frusciante',
+//     song: 'Red Hot Chili Peppers - Zephyr Song',
+//     gain: 4,
+//     treble: 5,
+//     mid: 5,
+//     bass: 7,
+//     volume: 7,
+//     reverb: 4
+//   }
+// ];

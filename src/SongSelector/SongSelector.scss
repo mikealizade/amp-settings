@@ -1,0 +1,29 @@
+.song-selector {
+    width: calc(45% - 20px);
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #815f3c;
+    opacity: 0;
+    visibility: hidden;
+    margin: 28px 0 0;
+    max-height: 130px;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;   
+    }
+
+    li {
+        color: #e88524;
+        border-bottom: 1px solid #815f3c;
+
+        &:hover {
+            background-color: transparent;
+            color: #ff7f01;
+        }
+    }
+}
