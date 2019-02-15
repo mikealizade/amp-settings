@@ -24,7 +24,7 @@ describe('<Selector>', () => {
   }];
 
   beforeEach(() => {
-    component = shallow(<Selector selectGuitarist={selectGuitarist} allGuitarists={guitarists} songs={result}/>);
+    component = shallow(<Selector selectGuitarist={selectGuitarist} allGuitarists={guitarists} songs={result} />);
   });
 
   it('filters a list of names based on user input', () => {
