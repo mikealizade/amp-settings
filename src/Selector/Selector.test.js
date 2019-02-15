@@ -10,22 +10,25 @@ describe('<Selector>', () => {
   let component = '';
   const selectGuitarist = jest.fn();
   const result = [{
-    name: 'Jimmy Hendrix',
-    song: 'Purple Haze',
-    gain: 7.5,
-    treble: 6.5,
-    mid: 9,
-    bass: 6,
-    volume: 7,
-    reverb: 3
+    name: 'Jimmy Page',
+    songs: [{
+      band: 'Led Zeppelin',
+      song: 'Whole Lotta Love',
+      gain: 7,
+      treble: 3,
+      mid: 7,
+      bass: 6,
+      volume: 5,
+      reverb: 5
+    }]
   }];
 
   beforeEach(() => {
-    component = shallow(<Selector selectGuitarist={selectGuitarist} allGuitarists={guitarists} />);
+    component = shallow(<Selector selectGuitarist={selectGuitarist} allGuitarists={guitarists} songs={result}/>);
   });
 
   it('filters a list of names based on user input', () => {
-    component.find('input').simulate('change', { target: { value: 'x' } });
+    component.find('input').simulate('change', { target: { value: 'pag' } });
     expect(component.state().guitarists).toEqual(result);
     expect(component.state().isActive).toEqual(true);
   });
