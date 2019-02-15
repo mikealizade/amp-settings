@@ -64,7 +64,7 @@ app.post('/send', function(req, res, next) {
       service: 'gmail',
       auth: {
         user: 'mike.alizade@gmail.com',
-        pass: 'W00dcutt3r'
+        pass: 'Contract0r'
       }
     })
 
