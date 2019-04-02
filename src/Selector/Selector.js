@@ -1,49 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SongSelector } from '../SongSelector/SongSelector';
 import './Selector.scss';
 
-export default class Selector extends React.Component {
-  constructor (props) {
-    super(props);
+export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, prevSongs }) => {
+  let input;
+  const [search, setGuitarists] = useState({
+    guitarists: [],
+    isActive: false,
+    placeholder: 'Type guitarist\'s name'
+  });
+  const { isActive, placeholder, guitarists } = search;
 
-    this.state = {
-      guitarists: [],
-      isActive: false,
-      placeholder: 'Type guitarist\'s name'
-    };
-  }
+  const searchGuitarists = ({ target: { value } }) => {
+    const guitarists = allGuitarists.filter(({ name }) => value && name.toLowerCase().includes(value.toLowerCase()));
 
-  searchGuitarists = ({ target: { value } }) => {
-    const guitarists = this.props.allGuitarists.filter(({ name }) => value && name.toLowerCase().includes(value.toLowerCase()));
-    this.setState({
+    setGuitarists({
+      ...search,
       guitarists,
       isActive: guitarists.length > 0
-    });
+    })
   }
 
-  selectGuitarist = guitarist => () => {
-    this.props.selectGuitarist(guitarist);
-    this.setState({
+  const chooseGuitarist = guitarist => () => {
+    selectGuitarist(guitarist);
+    setGuitarists({
+      ...search,
       isActive: false,
       placeholder: ''
-    });
-    this.input.value = '';
-    this.input.focus();
+    })
+    input.value = '';
+    input.focus();
   }
-
-  render () {
-    const { isActive, placeholder, guitarists } = this.state;
-    const { songs, selectSong, prevSongs } = this.props;
 
     return (
       <div className='guitarists'>
         <div className='guitarists-container'>
-          <input type='text' placeholder={placeholder} onChange={this.searchGuitarists} ref={el => { this.input = el; }} defaultValue='' />
+          <input type='text' placeholder={placeholder} onChange={searchGuitarists} defaultValue='' ref={el => { input = el; }} />
           <ul className={`guitarist-list${isActive ? ' active' : ''}`}>
             {
               guitarists.map((guitarist, i) => {
                 const { name } = guitarist;
-                return <li key={`${name}-${i}`} onClick={this.selectGuitarist(guitarist)}>{ name }</li>;
+                return <li key={`${name}-${i}`} onClick={chooseGuitarist(guitarist)}>{ name }</li>;
               })
             }
           </ul>
@@ -53,5 +50,4 @@ export default class Selector extends React.Component {
         }
       </div>
     );
-  }
 }

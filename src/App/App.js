@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'raf/polyfill';
-import Selector from '../Selector/Selector';
+import { Selector } from '../Selector/Selector';
 import { Amp } from '../Amp/Amp';
 import { Intro } from './Intro';
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
