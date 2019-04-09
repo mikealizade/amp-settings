@@ -1,54 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import './FeedbackForm.scss';
 
-class FeedbackForm extends React.Component {
-  constructor (props) {
-    super(props);
+const FeedbackForm = ({ submitForm }) => {
 
-    this.state = {
-      isFeedbackSent: false,
-      isFormOpen: false,
-      name: '',
-      message: '',
-      errorName: false,
-      errorMessage: false
-    };
-  }
+  const [form, updateEntry] = useState({
+    isFeedbackSent: false,
+    isFormOpen: false,
+    name: '',
+    message: '',
+    errorName: false,
+    errorMessage: false
+  })
 
-  updateEntry = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
+  const updateForm = ({ target: { name, value } }) => {
+    updateEntry({
+      ...form,
+      [name]: value
     });
   }
 
-  submitForm = (e) => {
+  const submitFeedback = e => {
     e.preventDefault();
-    const { name, message } = this.state;
+    const { name, message } = form;
 
     if (name === '' || message === '') {
-      this.setState({
+      updateEntry({
+        ...form,
         errorName: name === '',
         errorMessage: message === ''
       });
       return;
     }
 
-    this.setState({
+    updateEntry({
+      ...form,
       isFeedbackSent: true
-    }, this.closeForm);
-
-    this.props.submitForm({ name, message });
+    });
+    closeForm()
+    submitForm({ name, message });
   }
 
-  closeForm = () => {
+  const closeForm = () => {
     setTimeout(() => {
-      this.toggleForm();
+      toggleForm();
     }, 1500);
 
     setTimeout(() => {
-      this.setState({
+      updateEntry({
         isFeedbackSent: false,
+        isFormOpen: false,
         name: '',
         message: '',
         errorName: false,
@@ -57,40 +58,40 @@ class FeedbackForm extends React.Component {
     }, 3400);
   }
 
-  toggleForm = () => {
-    this.setState({
-      isFormOpen: !this.state.isFormOpen
+  const toggleForm = () => {
+    updateEntry({
+      ...form,
+      isFormOpen: !form.isFormOpen
     });
   }
 
-  render () {
-    const {
-      isFeedbackSent, isFormOpen, name, message, errorName, errorMessage
-    } = this.state;
+  const {
+    isFeedbackSent, isFormOpen, name, message, errorName, errorMessage
+  } = form;
 
-    return (<div>
-      <section className={'feedback'}>
-        <div className='feedback__tab btn' onClick={this.toggleForm}>+</div>
-        <div className={`modal ${isFormOpen ? 'open' : ''}`}>
-          <form className='feedback__form'>
-            <h2>Feedback and Suggestions <span onClick={this.toggleForm}>x</span></h2>
-            {!isFeedbackSent
-              ? <fieldset>
-                <p>Please use the form below to provide any feedback, suggestions or other amp settings.</p>
-                <label htmlFor='feedback__name'>Your name</label>
-                <input id='feedback__name' name='name' type='text' className={errorName ? 'feedback__name--error' : ''} value={name} onChange={this.updateEntry} />
-                <label htmlFor='feedback__message'>Your message</label>
-                <textarea id='feedback__message' name='message' className={errorMessage ? 'feedback__message--error' : ''} value={message} onChange={this.updateEntry} />
-                <button type='submit' className='btn' onClick={this.submitForm}>Send</button>
-              </fieldset>
-              : <p>Thanks for your feedback!</p>
-            }
-          </form>
-        </div>
-      </section>
-    </div>
-    );
-  }
+  return (<div>
+    <section className={'feedback'}>
+      <div className='feedback__tab btn' onClick={toggleForm}>+</div>
+      <div className={`modal ${isFormOpen ? 'open' : ''}`}>
+        <form className='feedback__form'>
+          <h2>Feedback and Suggestions <span onClick={toggleForm}>x</span></h2>
+          {!isFeedbackSent
+            ? <fieldset>
+              <p>Please use the form below to provide any feedback, suggestions or other amp settings.</p>
+              <label htmlFor='feedback__name'>Your name</label>
+              <input id='feedback__name' name='name' type='text' className={errorName ? 'feedback__name--error' : ''} value={name} onChange={updateForm} />
+              <label htmlFor='feedback__message'>Your message</label>
+              <textarea id='feedback__message' name='message' className={errorMessage ? 'feedback__message--error' : ''} value={message} onChange={updateForm} />
+              <button type='submit' className='btn' onClick={submitFeedback}>Send</button>
+            </fieldset>
+            : <p>Thanks for your feedback!</p>
+          }
+        </form>
+      </div>
+    </section>
+  </div>
+  );
+  
 }
 
 const mapStateToProps = ({app}) => {

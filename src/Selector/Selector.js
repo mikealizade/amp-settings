@@ -18,8 +18,8 @@ export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, pr
       ...search,
       guitarists,
       isActive: guitarists.length > 0
-    })
-  }
+    });
+  };
 
   const chooseGuitarist = guitarist => () => {
     selectGuitarist(guitarist);
@@ -27,27 +27,27 @@ export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, pr
       ...search,
       isActive: false,
       placeholder: ''
-    })
+    });
     input.value = '';
     input.focus();
-  }
+  };
 
-    return (
-      <div className='guitarists'>
-        <div className='guitarists-container'>
-          <input type='text' placeholder={placeholder} onChange={searchGuitarists} defaultValue='' ref={el => { input = el; }} />
-          <ul className={`guitarist-list${isActive ? ' active' : ''}`}>
-            {
-              guitarists.map((guitarist, i) => {
-                const { name } = guitarist;
-                return <li key={`${name}-${i}`} onClick={chooseGuitarist(guitarist)}>{ name }</li>;
-              })
-            }
-          </ul>
-        </div>
-        {(songs.length || prevSongs) &&
-        <SongSelector songs={songs.length ? songs : prevSongs} selectSong={selectSong} />
-        }
+  return (
+    <div className='guitarists'>
+      <div className='guitarists-container'>
+        <input type='text' placeholder={placeholder} onChange={searchGuitarists} defaultValue='' ref={el => { input = el; }} />
+        <ul className={`guitarist-list${isActive ? ' active' : ''}`}>
+          {
+            guitarists.map((guitarist, i) => {
+              const { name } = guitarist;
+              return <li key={`${name}-${i}`} onClick={chooseGuitarist(guitarist)}>{ name }</li>;
+            })
+          }
+        </ul>
       </div>
-    );
-}
+      {(songs.length || prevSongs) &&
+        <SongSelector songs={songs.length ? songs : prevSongs} selectSong={selectSong} />
+      }
+    </div>
+  );
+};

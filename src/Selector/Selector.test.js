@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import guitarists from './guitarists';
-import Selector from './Selector';
+import { Selector } from './Selector';
 
 configure({ adapter: new Adapter() });
 
