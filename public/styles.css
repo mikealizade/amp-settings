@@ -94,6 +94,111 @@ input {
     @media (min-width: 992px) {
       input::placeholder {
         font-size: 50px; } }
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7); }
+  .modal.open {
+    display: flex; }
+
+.feedback {
+  width: 440px; }
+  .feedback__tab {
+    background-color: #ff9d3b;
+    position: fixed;
+    right: 0;
+    top: calc(100% / 2 - 35px);
+    font-size: 2.5rem;
+    line-height: 4.4rem;
+    text-align: center;
+    font-family: 'Barlow Condensed';
+    border-radius: 4px 0 0 4px;
+    padding: 0px 16px;
+    text-decoration: none;
+    margin: 0;
+    letter-spacing: 1px;
+    height: 70px;
+    z-index: 100; }
+  .feedback form {
+    background-color: #fff;
+    width: 400px;
+    max-width: 400px;
+    height: 500px;
+    border-radius: 0 0 0 4px;
+    margin: 0;
+    padding: 20px;
+    box-shadow: 1px 1px 6px #444; }
+  .feedback fieldset {
+    border: 0;
+    padding: 0; }
+  .feedback h2 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+    color: #ef7700;
+    font-weight: normal;
+    position: relative; }
+    .feedback h2 span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      position: absolute;
+      bottom: 35px;
+      right: -10px; }
+  .feedback p {
+    font-size: 1.2rem; }
+  .feedback label {
+    color: #ef7700;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    display: block; }
+  .feedback input {
+    color: #ef7700;
+    font-size: 1.4rem;
+    background-color: #fbf1e7;
+    margin-bottom: 20px;
+    border: 0; }
+  .feedback textarea {
+    font-size: 1.4rem;
+    width: 100%;
+    border: 0;
+    resize: none;
+    color: #ef7700;
+    font-family: Barlow Condensed;
+    height: 150px;
+    padding: 10px;
+    background-color: #fbf1e7;
+    margin-bottom: 20px; }
+  .feedback button {
+    float: right;
+    width: 100px;
+    padding: 10px 20px;
+    font-size: 1rem; }
+  .feedback .btn {
+    background-image: -webkit-linear-gradient(top, #ff9d3b, #fbb066);
+    background-image: -moz-linear-gradient(top, #ff9d3b, #fbb066);
+    background-image: -ms-linear-gradient(top, #ff9d3b, #fbb066);
+    background-image: linear-gradient(to bottom, #ff9d3b, #fbb066);
+    text-shadow: 1px 1px 3px #666666;
+    color: #fff;
+    cursor: pointer; }
+    .feedback .btn:hover {
+      background: #3cb0fd;
+      background-image: -webkit-linear-gradient(top, #fbb066, #ff9d3b);
+      background-image: -moz-linear-gradient(top, #fbb066, #ff9d3b);
+      background-image: -ms-linear-gradient(top, #fbb066, #ff9d3b);
+      background-image: linear-gradient(to bottom, #fbb066, #ff9d3b);
+      text-decoration: none; }
+  .feedback [class*="--error"] {
+    background-color: #ffd5d5; }
 .button-container {
   display: inline-block;
   position: relative;
@@ -318,111 +423,6 @@ button {
 a {
   text-decoration: none;
   display: block; }
-.modal {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7); }
-  .modal.open {
-    display: flex; }
-
-.feedback {
-  width: 440px; }
-  .feedback__tab {
-    background-color: #ff9d3b;
-    position: fixed;
-    right: 0;
-    top: calc(100% / 2 - 35px);
-    font-size: 2.5rem;
-    line-height: 4.4rem;
-    text-align: center;
-    font-family: 'Barlow Condensed';
-    border-radius: 4px 0 0 4px;
-    padding: 0px 16px;
-    text-decoration: none;
-    margin: 0;
-    letter-spacing: 1px;
-    height: 70px;
-    z-index: 100; }
-  .feedback form {
-    background-color: #fff;
-    width: 400px;
-    max-width: 400px;
-    height: 500px;
-    border-radius: 0 0 0 4px;
-    margin: 0;
-    padding: 20px;
-    box-shadow: 1px 1px 6px #444; }
-  .feedback fieldset {
-    border: 0;
-    padding: 0; }
-  .feedback h2 {
-    font-size: 2rem;
-    margin: 0 0 10px;
-    color: #ef7700;
-    font-weight: normal;
-    position: relative; }
-    .feedback h2 span {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      position: absolute;
-      bottom: 35px;
-      right: -10px; }
-  .feedback p {
-    font-size: 1.2rem; }
-  .feedback label {
-    color: #ef7700;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    display: block; }
-  .feedback input {
-    color: #ef7700;
-    font-size: 1.4rem;
-    background-color: #fbf1e7;
-    margin-bottom: 20px;
-    border: 0; }
-  .feedback textarea {
-    font-size: 1.4rem;
-    width: 100%;
-    border: 0;
-    resize: none;
-    color: #ef7700;
-    font-family: Barlow Condensed;
-    height: 150px;
-    padding: 10px;
-    background-color: #fbf1e7;
-    margin-bottom: 20px; }
-  .feedback button {
-    float: right;
-    width: 100px;
-    padding: 10px 20px;
-    font-size: 1rem; }
-  .feedback .btn {
-    background-image: -webkit-linear-gradient(top, #ff9d3b, #fbb066);
-    background-image: -moz-linear-gradient(top, #ff9d3b, #fbb066);
-    background-image: -ms-linear-gradient(top, #ff9d3b, #fbb066);
-    background-image: linear-gradient(to bottom, #ff9d3b, #fbb066);
-    text-shadow: 1px 1px 3px #666666;
-    color: #fff;
-    cursor: pointer; }
-    .feedback .btn:hover {
-      background: #3cb0fd;
-      background-image: -webkit-linear-gradient(top, #fbb066, #ff9d3b);
-      background-image: -moz-linear-gradient(top, #fbb066, #ff9d3b);
-      background-image: -ms-linear-gradient(top, #fbb066, #ff9d3b);
-      background-image: linear-gradient(to bottom, #fbb066, #ff9d3b);
-      text-decoration: none; }
-  .feedback [class*="--error"] {
-    background-color: #ffd5d5; }
 #root {
   width: 100%; }
 

@@ -35,7 +35,7 @@ export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, pr
   return (
     <div className='guitarists'>
       <div className='guitarists-container'>
-        <input className="guitarist-input" type='text' placeholder={placeholder} onChange={searchGuitarists} defaultValue='' ref={el => { input = el; }} />
+        <input className='guitarist-input' type='text' placeholder={placeholder} onChange={searchGuitarists} defaultValue='' ref={el => { input = el; }} />
         <ul className={`guitarist-list${isActive ? ' active' : ''}`}>
           {
             guitarists.map((guitarist, i) => {

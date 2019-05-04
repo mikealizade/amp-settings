@@ -1,14 +1,14 @@
 import React from 'react';
-import {render, fireEvent} from 'react-testing-library'
-//import { shallow, configure } from 'enzyme';
-//import Adapter from 'enzyme-adapter-react-16';
+import {render, fireEvent} from 'react-testing-library';
+// import { shallow, configure } from 'enzyme';
+// import Adapter from 'enzyme-adapter-react-16';
 import guitarists from './guitarists';
 import { Selector } from './Selector';
 
-//configure({ adapter: new Adapter() });
+// configure({ adapter: new Adapter() });
 
 describe('<Selector>', () => {
-  //let component = '';
+  // let component = '';
   const selectGuitarist = jest.fn();
   const result = [{
     name: 'Jimmy Page',
@@ -31,7 +31,7 @@ describe('<Selector>', () => {
   it('filters a list of names based on user input', () => {
     const { container } = render(<Selector selectGuitarist={selectGuitarist} allGuitarists={guitarists} songs={result} />);
 
-    //component.find('input').
+    // component.find('input').
     const input = container.querySelector('.guitarist-input');
     fireEvent.change({ target: { value: 'pag' } });
     expect(component.state().guitarists).toEqual(result);

@@ -38,7 +38,7 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
       prevSongs: songs,
       isMulti: false
     });
-  }
+  };
 
   const selectSong = song => {
     setAmpSetting({
@@ -46,20 +46,20 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
       songs: [song],
       isMulti: true
     });
-  }
+  };
 
   useEffect(() => {
     fetchAllGuitarists();
-  }, [])
+  }, []);
 
   return (
     <section className='content'>
       <Intro />
-      <Selector 
+      <Selector
         prevSongs={isMulti ? prevSongs : []}
-        selectGuitarist={selectGuitarist} 
-        selectSong={selectSong} 
-        allGuitarists={allGuitarists} 
+        selectGuitarist={selectGuitarist}
+        selectSong={selectSong}
+        allGuitarists={allGuitarists}
         songs={hasSongs ? songs : []}
       />
       <Guitarist name={name} songName={!hasSongs && songName} />
@@ -67,14 +67,14 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
       <FeedbackForm />
     </section>
   );
-}
+};
 
 const mapStateToProps = ({ app }) => ({
-    allGuitarists: app
+  allGuitarists: app
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchAllGuitarists: () => dispatch({ type: 'FETCH_ALL_GUITARISTS' })
+  fetchAllGuitarists: () => dispatch({ type: 'FETCH_ALL_GUITARISTS' })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
