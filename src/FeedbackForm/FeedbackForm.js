@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import './FeedbackForm.scss';
 
 const FeedbackForm = ({ submitForm }) => {
-
   const [form, updateEntry] = useState({
     isFeedbackSent: false,
     isFormOpen: false,
@@ -11,14 +10,14 @@ const FeedbackForm = ({ submitForm }) => {
     message: '',
     errorName: false,
     errorMessage: false
-  })
+  });
 
   const updateForm = ({ target: { name, value } }) => {
     updateEntry({
       ...form,
       [name]: value
     });
-  }
+  };
 
   const submitFeedback = e => {
     e.preventDefault();
@@ -37,9 +36,9 @@ const FeedbackForm = ({ submitForm }) => {
       ...form,
       isFeedbackSent: true
     });
-    closeForm()
+    closeForm();
     submitForm({ name, message });
-  }
+  };
 
   const closeForm = () => {
     setTimeout(() => {
@@ -56,14 +55,14 @@ const FeedbackForm = ({ submitForm }) => {
         errorMessage: false
       });
     }, 3400);
-  }
+  };
 
   const toggleForm = () => {
     updateEntry({
       ...form,
       isFormOpen: !form.isFormOpen
     });
-  }
+  };
 
   const {
     isFeedbackSent, isFormOpen, name, message, errorName, errorMessage
@@ -91,8 +90,7 @@ const FeedbackForm = ({ submitForm }) => {
     </section>
   </div>
   );
-  
-}
+};
 
 const mapStateToProps = ({app}) => {
   return {

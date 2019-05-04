@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import 'raf/polyfill';
 import { Selector } from '../Selector/Selector';
@@ -8,31 +8,31 @@ import FeedbackForm from '../FeedbackForm/FeedbackForm';
 import { Guitarist } from '../Guitarist/Guitarist';
 import './App.scss';
 
-class App extends Component {
-  constructor (props) {
-    super(props);
-    this.initState = {
-      name: '',
-      songs: [
-        {
-          song: '',
-          gain: 0,
-          treble: 0,
-          mid: 0,
-          bass: 0,
-          volume: 0,
-          reverb: 0
-        }
-      ],
-      prevSongs: [],
-      isMulti: false
-    };
+const App = ({fetchAllGuitarists, allGuitarists}) => {
+  const initState = {
+    name: '',
+    songs: [
+      {
+        song: '',
+        gain: 0,
+        treble: 0,
+        mid: 0,
+        bass: 0,
+        volume: 0,
+        reverb: 0
+      }
+    ],
+    prevSongs: [],
+    isMulti: false
+  };
+  const [ampSetting, setAmpSetting] = useState(initState);
+  const { name, songs, songs: [{song: songName}], prevSongs, isMulti } = ampSetting;
+  const [song] = songs;
+  const hasSongs = songs.length > 1;
 
-    this.state = this.initState;
-  }
-
-  selectGuitarist = ({name, songs}) => {
-    this.setState({
+  const selectGuitarist = ({name, songs}) => {
+    setAmpSetting({
+      ...ampSetting,
       name,
       songs,
       prevSongs: songs,
@@ -40,44 +40,41 @@ class App extends Component {
     });
   }
 
-  selectSong = song => {
-    this.setState({
+  const selectSong = song => {
+    setAmpSetting({
+      ...ampSetting,
       songs: [song],
       isMulti: true
     });
   }
 
-  componentDidMount () {
-    this.props.fetchAllGuitarists();
-  }
+  useEffect(() => {
+    fetchAllGuitarists();
+  }, [])
 
-  render () {
-    const { name, songs, songs: [{song: songName}], prevSongs, isMulti } = this.state;
-    const [song] = songs;
-    const hasSongs = songs.length > 1;
-
-    return (
-      <section className='content'>
-        <Intro />
-        <Selector prevSongs={isMulti ? prevSongs : []} selectGuitarist={this.selectGuitarist} selectSong={this.selectSong} allGuitarists={this.props.allGuitarists} songs={hasSongs ? songs : []} />
-        <Guitarist name={name} songName={!hasSongs && songName} />
-        <Amp settings={!hasSongs && {...song}} />
-        <FeedbackForm />
-      </section>
-    );
-  }
+  return (
+    <section className='content'>
+      <Intro />
+      <Selector 
+        prevSongs={isMulti ? prevSongs : []}
+        selectGuitarist={selectGuitarist} 
+        selectSong={selectSong} 
+        allGuitarists={allGuitarists} 
+        songs={hasSongs ? songs : []}
+      />
+      <Guitarist name={name} songName={!hasSongs && songName} />
+      <Amp settings={!hasSongs && {...song}} />
+      <FeedbackForm />
+    </section>
+  );
 }
 
-const mapStateToProps = ({app}) => {
-  return {
+const mapStateToProps = ({ app }) => ({
     allGuitarists: app
-  };
-};
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
+const mapDispatchToProps = dispatch => ({
     fetchAllGuitarists: () => dispatch({ type: 'FETCH_ALL_GUITARISTS' })
-  };
-};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
