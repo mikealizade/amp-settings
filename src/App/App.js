@@ -7,6 +7,10 @@ import { Intro } from './Intro';
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
 import { Guitarist } from '../Guitarist/Guitarist';
 import './App.scss';
+if (process.env.NODE_ENV !== 'production') {
+  const whyDidYouRender = require('@welldone-software/why-did-you-render');
+  whyDidYouRender(React);
+}
 
 const App = ({fetchAllGuitarists, allGuitarists}) => {
   const initState = {
@@ -68,6 +72,11 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
     </section>
   );
 };
+
+App.whyDidYouRender = {
+  logOnDifferentValues: true,
+  customName: 'App'
+}
 
 const mapStateToProps = ({ app }) => ({
   allGuitarists: app

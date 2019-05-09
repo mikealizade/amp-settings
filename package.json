@@ -1,6 +1,7 @@
 {
   "author": "",
   "dependencies": {
+    "@welldone-software/why-did-you-render": "^3.0.9",
     "babel-polyfill": "^6.26.0",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",

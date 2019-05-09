@@ -4,3 +4,6 @@ mongod --dbpath data/
 mongo
 use ampsettings
 db.guitarists.find().pretty()
+
+# Readd testing on codeship
+settings > add pipeline > enter npm test
