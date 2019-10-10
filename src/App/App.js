@@ -59,7 +59,7 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
 
   return (
     <section className='content'>
-      <SignIn/>
+      <SignIn />
       <Intro />
       <Selector
         prevSongs={isMulti ? prevSongs : []}
