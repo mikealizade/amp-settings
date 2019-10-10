@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import 'raf/polyfill';
 import { Selector } from '../Selector/Selector';
-import { Amp } from '../Amp/Amp';
+import { Controls } from '../Controls/Controls';
 import { Intro } from './Intro';
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
 import { Guitarist } from '../Guitarist/Guitarist';
+import { SignIn } from '../SignIn/SignIn';
 import './App.scss';
 if (process.env.NODE_ENV !== 'production') {
   const whyDidYouRender = require('@welldone-software/why-did-you-render');
@@ -58,6 +59,7 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
 
   return (
     <section className='content'>
+      <SignIn/>
       <Intro />
       <Selector
         prevSongs={isMulti ? prevSongs : []}
@@ -67,7 +69,7 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
         songs={hasSongs ? songs : []}
       />
       <Guitarist name={name} songName={!hasSongs && songName} />
-      <Amp settings={!hasSongs && {...song}} />
+      <Controls settings={!hasSongs && {...song}} />
       <FeedbackForm />
     </section>
   );
@@ -76,7 +78,7 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
 App.whyDidYouRender = {
   logOnDifferentValues: true,
   customName: 'App'
-}
+};
 
 const mapStateToProps = ({ app }) => ({
   allGuitarists: app
