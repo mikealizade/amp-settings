@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Control } from '../Control/Control';
 
-export const Controls = ({settings: {
-  gain = 0, treble = 0, mid = 0, bass = 0, volume = 0, reverb = 0
-} }) => (
+export const Controls = ({
+  settings: {
+    gain = 0, treble = 0, mid = 0, bass = 0, volume = 0, reverb = 0
+  }
+}) => (
   <section className='amp linear'>
     <Control type='Gain' level={gain} />
     <Control type='Treble' level={treble} />

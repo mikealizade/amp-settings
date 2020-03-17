@@ -7,7 +7,7 @@ export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, pr
   const [search, setGuitarists] = useState({
     guitarists: [],
     isActive: false,
-    placeholder: `Type guitarist's name`
+    placeholder: 'Type guitarist\'s name'
   });
   const { isActive, placeholder, guitarists } = search;
 
@@ -40,14 +40,13 @@ export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, pr
           {
             guitarists.map((guitarist, i) => {
               const { name } = guitarist;
-              return <li key={`${name}-${i}`} onClick={chooseGuitarist(guitarist)}>{ name }</li>;
+              return <li key={`${name}-${i}`} onClick={chooseGuitarist(guitarist)}>{name}</li>;
             })
           }
         </ul>
       </div>
       {(songs.length || prevSongs) &&
-        <SongSelector songs={songs.length ? songs : prevSongs} selectSong={selectSong} />
-      }
+        <SongSelector songs={songs.length ? songs : prevSongs} selectSong={selectSong} />}
     </div>
   );
 };

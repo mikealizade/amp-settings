@@ -5,7 +5,7 @@ const convert = level => {
   return level % 1 !== 0 ? String(level).replace('.', '-') : level;
 };
 
-export const Control = ({type, level}) => (
+export const Control = ({ type, level }) => (
   <div className='button-container'>
     <p className='type'>{type}</p>
     <span className='peg zero'>0</span>

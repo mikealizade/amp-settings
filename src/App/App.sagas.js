@@ -27,7 +27,7 @@ const workerSendEmail = function * ({ formData }) {
 
 const workerFetchGuitarists = function * () {
   try {
-    const [ { guitarists } ] = yield call(fetchGuitarists);
+    const [{ guitarists }] = yield call(fetchGuitarists);
     yield put({ type: 'FETCH_GUITARISTS_SUCCESS', guitarists });
   } catch (error) {
     // dispatch a failure action to the store with the error

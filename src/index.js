@@ -9,7 +9,7 @@ import App from './App/App';
 const sagaMiddleware = createSagaMiddleware();
 const reduxDevTools = window.navigator.userAgent.includes('Chrome') ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : compose;
 
-let store = createStore(
+const store = createStore(
   reducers,
   compose(applyMiddleware(sagaMiddleware), reduxDevTools)
 );

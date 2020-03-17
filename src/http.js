@@ -22,7 +22,7 @@ export default {
     const options = {
       method: 'post',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': contentType
       },
       body: JSON.stringify(data)

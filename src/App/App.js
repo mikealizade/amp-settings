@@ -6,14 +6,14 @@ import { Controls } from '../Controls/Controls';
 import { Intro } from './Intro';
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
 import { Guitarist } from '../Guitarist/Guitarist';
-import { SignIn } from '../SignIn/SignIn';
+// import { SignIn } from '../SignIn/SignIn';
 import './App.scss';
 if (process.env.NODE_ENV !== 'production') {
   const whyDidYouRender = require('@welldone-software/why-did-you-render');
   whyDidYouRender(React);
 }
 
-const App = ({fetchAllGuitarists, allGuitarists}) => {
+const App = ({ fetchAllGuitarists, allGuitarists }) => {
   const initState = {
     name: '',
     songs: [
@@ -31,11 +31,11 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
     isMulti: false
   };
   const [ampSetting, setAmpSetting] = useState(initState);
-  const { name, songs, songs: [{song: songName}], prevSongs, isMulti } = ampSetting;
+  const { name, songs, songs: [{ song: songName }], prevSongs, isMulti } = ampSetting;
   const [song] = songs;
   const hasSongs = songs.length > 1;
 
-  const selectGuitarist = ({name, songs}) => {
+  const selectGuitarist = ({ name, songs }) => {
     setAmpSetting({
       ...ampSetting,
       name,
@@ -59,7 +59,7 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
 
   return (
     <section className='content'>
-      <SignIn />
+      {/* <SignIn /> */}
       <Intro />
       <Selector
         prevSongs={isMulti ? prevSongs : []}
@@ -69,7 +69,7 @@ const App = ({fetchAllGuitarists, allGuitarists}) => {
         songs={hasSongs ? songs : []}
       />
       <Guitarist name={name} songName={!hasSongs && songName} />
-      <Controls settings={!hasSongs && {...song}} />
+      <Controls settings={!hasSongs && { ...song }} />
       <FeedbackForm />
     </section>
   );

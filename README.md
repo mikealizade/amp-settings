@@ -7,3 +7,6 @@ db.guitarists.find().pretty()
 
 # Readd testing on codeship
 settings > add pipeline > enter npm test
+
+# Pushing the code
+git push origin master
