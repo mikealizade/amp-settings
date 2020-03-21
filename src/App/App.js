@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import 'raf/polyfill';
 import { Selector } from '../Selector/Selector';
 import { Controls } from '../Controls/Controls';
 import { Intro } from './Intro';
-import FeedbackForm from '../FeedbackForm/FeedbackForm';
+import { FeedbackForm } from '../FeedbackForm/FeedbackForm';
 import { Guitarist } from '../Guitarist/Guitarist';
+import { fetchAllGuitarists } from './App.api';
+import { selectGuitarists } from './App.selectors';
 // import { SignIn } from '../SignIn/SignIn';
 import './App.scss';
 if (process.env.NODE_ENV !== 'production') {
@@ -13,7 +15,11 @@ if (process.env.NODE_ENV !== 'production') {
   whyDidYouRender(React);
 }
 
-const App = ({ fetchAllGuitarists, allGuitarists }) => {
+export const App = () => {
+  const dispatch = useDispatch();
+  const allGuitarists = useSelector(selectGuitarists);
+  console.log('allGuitarists', allGuitarists);
+
   const initState = {
     name: '',
     songs: [
@@ -54,7 +60,8 @@ const App = ({ fetchAllGuitarists, allGuitarists }) => {
   };
 
   useEffect(() => {
-    fetchAllGuitarists();
+    // dispatch(fetchAllGuitarists());
+    dispatch({ type: 'FETCH_ALL_GUITARISTS' });
   }, []);
 
   return (
@@ -79,13 +86,3 @@ App.whyDidYouRender = {
   logOnDifferentValues: true,
   customName: 'App'
 };
-
-const mapStateToProps = ({ app }) => ({
-  allGuitarists: app
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchAllGuitarists: () => dispatch({ type: 'FETCH_ALL_GUITARISTS' })
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './FeedbackForm.scss';
 
-const FeedbackForm = ({ submitForm }) => {
+export const FeedbackForm = () => {
+  const dispatch = useDispatch();
   const [form, updateEntry] = useState({
     isFeedbackSent: false,
     isFormOpen: false,
@@ -37,7 +38,7 @@ const FeedbackForm = ({ submitForm }) => {
       isFeedbackSent: true
     });
     closeForm();
-    submitForm({ name, message });
+    dispatch({ type: 'SUBMIT_FORM', formData: { name, message } });
   };
 
   const closeForm = () => {
@@ -93,19 +94,3 @@ const FeedbackForm = ({ submitForm }) => {
     </div>
   );
 };
-
-const mapStateToProps = ({ app }) => {
-  return {
-    isFormSubmitted: app
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    submitForm: formData => {
-      dispatch({ type: 'SUBMIT_FORM', formData });
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FeedbackForm);
