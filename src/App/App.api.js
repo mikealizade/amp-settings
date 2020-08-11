@@ -10,7 +10,7 @@ export const fetchAllGuitarists = async () => {
   }
 };
 
-export const sendEmail = async (name, message) => {
+export const sendEmail = async ({ name, message }) => {
   try {
     const data = {
       name,
@@ -18,7 +18,10 @@ export const sendEmail = async (name, message) => {
     };
 
     const response = await http.post('/send', data);
-    return await response.json();
+    debugger;
+    const r = await response.json();
+
+    return r;
   } catch (error) {
     console.log('error sending mail', error);
   }

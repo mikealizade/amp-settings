@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import './FeedbackForm.scss';
+import { useSetRecoilState, useRecoilState } from 'recoil';
+import { sendEmail } from '../App/App.api';
+import { formState } from '../App/App.atoms';
 
 export const FeedbackForm = () => {
-  const dispatch = useDispatch();
-  const [form, updateEntry] = useState({
-    isFeedbackSent: false,
-    isFormOpen: false,
-    name: '',
-    message: '',
-    errorName: false,
-    errorMessage: false
-  });
+  const [form, updateEntry] = useRecoilState(formState);
 
   const updateForm = ({ target: { name, value } }) => {
     updateEntry({
@@ -20,7 +14,7 @@ export const FeedbackForm = () => {
     });
   };
 
-  const submitFeedback = e => {
+  const submitFeedback = async e => {
     e.preventDefault();
     const { name, message } = form;
 
@@ -32,13 +26,14 @@ export const FeedbackForm = () => {
       });
       return;
     }
-
-    updateEntry({
+    const formData = {
       ...form,
       isFeedbackSent: true
-    });
+    };
+
+    updateEntry(formData);
     closeForm();
-    dispatch({ type: 'SUBMIT_FORM', formData: { name, message } });
+    await sendEmail(formData);
   };
 
   const closeForm = () => {

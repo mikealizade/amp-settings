@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import 'raf/polyfill';
 import { Selector } from '../Selector/Selector';
 import { Controls } from '../Controls/Controls';
 import { Intro } from './Intro';
 import { FeedbackForm } from '../FeedbackForm/FeedbackForm';
 import { Guitarist } from '../Guitarist/Guitarist';
-import { fetchAllGuitarists } from './App.api';
-import { selectGuitarists } from './App.selectors';
-// import { SignIn } from '../SignIn/SignIn';
+import { RecentlyViewed } from '../RecentlyViewed/RecentlyViewed';
+import { fetchGuitarists, recentlyViewedState } from './App.atoms';
 import './App.scss';
+
 if (process.env.NODE_ENV !== 'production') {
   const whyDidYouRender = require('@welldone-software/why-did-you-render');
   whyDidYouRender(React);
 }
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const allGuitarists = useSelector(selectGuitarists);
-  console.log('allGuitarists', allGuitarists);
-
+  const [{ guitarists }] = useRecoilValue(fetchGuitarists);
+  const [recentlyViewed, setRecentlyViewed] = useRecoilState(recentlyViewedState);
   const initState = {
     name: '',
     songs: [
@@ -54,29 +52,47 @@ export const App = () => {
   const selectSong = song => {
     setAmpSetting({
       ...ampSetting,
+      name,
       songs: [song],
-      isMulti: true
+      isMulti: song.isMulti
+    });
+  };
+
+  const dedupeRecents = (name, song) => {
+    const recents = [{ name, song }, ...recentlyViewed];
+
+    return [
+      ...new Set(
+        recents.map(({ song: { song } }) => song)
+      )
+    ].map(id => {
+      return recents.find(
+        ({ song: { song } }) => song === id
+      );
     });
   };
 
   useEffect(() => {
-    // dispatch(fetchAllGuitarists());
-    dispatch({ type: 'FETCH_ALL_GUITARISTS' });
-  }, []);
+    if (songName && !hasSongs) {
+      const recents = dedupeRecents(name, song);
+
+      setRecentlyViewed(recents);
+    }
+  }, [setRecentlyViewed, songName, hasSongs]);
 
   return (
     <section className='content'>
-      {/* <SignIn /> */}
       <Intro />
       <Selector
         prevSongs={isMulti ? prevSongs : []}
         selectGuitarist={selectGuitarist}
         selectSong={selectSong}
-        allGuitarists={allGuitarists}
+        allGuitarists={guitarists}
         songs={hasSongs ? songs : []}
       />
       <Guitarist name={name} songName={!hasSongs && songName} />
       <Controls settings={!hasSongs && { ...song }} />
+      <RecentlyViewed selectSong={selectSong} />
       <FeedbackForm />
     </section>
   );
