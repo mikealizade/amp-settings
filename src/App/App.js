@@ -39,6 +39,10 @@ export const App = () => {
   const [song] = songs;
   const hasSongs = songs.length > 1;
 
+  console.log('ampSetting', ampSetting)
+  console.log('name', name)
+
+  // debugger
   const selectGuitarist = ({ name, songs }) => {
     setAmpSetting({
       ...ampSetting,
@@ -49,7 +53,9 @@ export const App = () => {
     });
   };
 
-  const selectSong = song => {
+  const selectSong = (name, song) => {
+    console.log('song', song)
+    // debugger
     setAmpSetting({
       ...ampSetting,
       name,
@@ -89,6 +95,7 @@ export const App = () => {
         selectSong={selectSong}
         allGuitarists={guitarists}
         songs={hasSongs ? songs : []}
+        name={name}
       />
       <Guitarist name={name} songName={!hasSongs && songName} />
       <Controls settings={!hasSongs && { ...song }} />

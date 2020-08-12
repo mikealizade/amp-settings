@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SongSelector } from '../SongSelector/SongSelector';
 import './Selector.scss';
 
-export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, prevSongs }) => {
+export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, prevSongs, name }) => {
   let input;
   const [search, setGuitarists] = useState({
     guitarists: [],
@@ -46,7 +46,7 @@ export const Selector = ({ allGuitarists, selectGuitarist, songs, selectSong, pr
         </ul>
       </div>
       {(songs.length || prevSongs) &&
-        <SongSelector songs={songs.length ? songs : prevSongs} selectSong={selectSong} />}
+        <SongSelector name={name} songs={songs.length ? songs : prevSongs} selectSong={selectSong} />}
     </div>
   );
 };

@@ -17,7 +17,7 @@ export const RecentlyViewed = ({ selectSong }) => {
               return (
                 <li key={`${song.song}-${i}`}>
                   <p>{name}</p>
-                  <p onClick={() => selectSong({ ...song, name, isMulti: false })}>{song.song}</p>
+                  <p onClick={() => selectSong(name, { ...song, isMulti: false })}>{song.song}</p>
                 </li>
               );
             }
