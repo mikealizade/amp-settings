@@ -149,6 +149,68 @@
 .recently-viewed p:last-child {
   color: #fff;
   cursor: pointer; }
+#root {
+  width: 100%; }
+
+body {
+  background: #252525;
+  font-family: 'Barlow Condensed';
+  box-sizing: border-box;
+  font-size: 14px; }
+
+.content {
+  margin: 3% auto;
+  width: 100%; }
+  @media (min-width: 650px) {
+    .content {
+      width: 580px; } }
+  @media (min-width: 992px) {
+    .content {
+      width: 1000px; } }
+
+.amp {
+  background-color: #d7d8d6;
+  width: 335px;
+  height: 650px;
+  border-radius: 3px;
+  text-align: center;
+  margin: 0 auto; }
+  @media (min-width: 650px) {
+    .amp {
+      width: 580px;
+      height: 470px; } }
+  @media (min-width: 992px) {
+    .amp {
+      width: 1000px;
+      height: 300px; } }
+
+h1 {
+  font-size: 40px;
+  color: #ff9d3b;
+  font-weight: normal;
+  width: 100%;
+  margin: 0 auto 10px;
+  height: 80px; }
+  @media (min-width: 650px) {
+    h1 {
+      font-size: 45px;
+      margin: 0 0 10px;
+      height: 60px; } }
+  @media (min-width: 992px) {
+    h1 {
+      font-size: 50px; } }
+  h1 span {
+    color: #fff;
+    font-size: 30px;
+    display: block; }
+    @media (min-width: 650px) {
+      h1 span {
+        display: inline-block; } }
+
+.intro {
+  color: #ff9d3b;
+  font-size: 1.3rem;
+  margin: 0 0 15px; }
 .guitarists {
   position: relative;
   width: 100%;
@@ -223,68 +285,6 @@ input {
     @media (min-width: 992px) {
       input::placeholder {
         font-size: 50px; } }
-#root {
-  width: 100%; }
-
-body {
-  background: #252525;
-  font-family: 'Barlow Condensed';
-  box-sizing: border-box;
-  font-size: 14px; }
-
-.content {
-  margin: 3% auto;
-  width: 100%; }
-  @media (min-width: 650px) {
-    .content {
-      width: 580px; } }
-  @media (min-width: 992px) {
-    .content {
-      width: 1000px; } }
-
-.amp {
-  background-color: #d7d8d6;
-  width: 335px;
-  height: 650px;
-  border-radius: 3px;
-  text-align: center;
-  margin: 0 auto; }
-  @media (min-width: 650px) {
-    .amp {
-      width: 580px;
-      height: 470px; } }
-  @media (min-width: 992px) {
-    .amp {
-      width: 1000px;
-      height: 300px; } }
-
-h1 {
-  font-size: 40px;
-  color: #ff9d3b;
-  font-weight: normal;
-  width: 100%;
-  margin: 0 auto 10px;
-  height: 80px; }
-  @media (min-width: 650px) {
-    h1 {
-      font-size: 45px;
-      margin: 0 0 10px;
-      height: 60px; } }
-  @media (min-width: 992px) {
-    h1 {
-      font-size: 50px; } }
-  h1 span {
-    color: #fff;
-    font-size: 30px;
-    display: block; }
-    @media (min-width: 650px) {
-      h1 span {
-        display: inline-block; } }
-
-.intro {
-  color: #ff9d3b;
-  font-size: 1.3rem;
-  margin: 0 0 15px; }
 .button-container {
   display: inline-block;
   position: relative;
