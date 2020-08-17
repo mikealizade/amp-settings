@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './FeedbackForm.scss';
-import { useSetRecoilState, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { sendEmail } from '../App/App.api';
 import { formState } from '../App/App.atoms';
+
+interface InputData {
+  target: {
+    name: string,
+    value: string
+  }
+}
 
 export const FeedbackForm = () => {
   const [form, updateEntry] = useRecoilState(formState);
 
-  const updateForm = ({ target: { name, value } }) => {
+  const updateForm = ({ target: { name, value } }: InputData) => {
     updateEntry({
       ...form,
       [name]: value
     });
   };
 
-  const submitFeedback = async e => {
+  const submitFeedback = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     const { name, message } = form;
 

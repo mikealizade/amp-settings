@@ -20,80 +20,6 @@
     .song-selector li:hover {
       background-color: transparent;
       color: #ff7f01; }
-.guitarists {
-  position: relative;
-  width: 100%;
-  z-index: 100;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: space-between; }
-  .guitarists-container {
-    width: 45%; }
-  .guitarists .guitarist-list {
-    position: absolute;
-    width: 45%;
-    min-height: 50px;
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-    background-color: #fff;
-    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.3);
-    max-height: 330px;
-    overflow: scroll;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .3s;
-    border-radius: 0 0 4px 4px;
-    border-bottom: #ff9d3b 4px solid;
-    border-top: #FF9D3B 2px solid; }
-    .guitarists .guitarist-list li {
-      color: #ef7f10;
-      border-bottom: 1px solid #ececec; }
-      .guitarists .guitarist-list li:hover {
-        background-color: #fff9f3; }
-  .guitarists ul.active {
-    opacity: 1;
-    visibility: visible; }
-  .guitarists li {
-    padding: 10px;
-    font-size: 30px;
-    cursor: pointer;
-    font-size: 22px; }
-    @media (min-width: 650px) {
-      .guitarists li {
-        font-size: 27px; } }
-    @media (min-width: 992px) {
-      .guitarists li {
-        font-size: 30px; } }
-  .guitarists li:last-child {
-    border: 0; }
-
-input {
-  font-size: 40px;
-  width: 100%;
-  margin-bottom: 0px;
-  background-color: #252525;
-  color: #ff9d3b;
-  border: 0;
-  border-bottom: 2px solid;
-  font-family: Barlow Condensed;
-  padding: 10px;
-  outline: none; }
-  @media (min-width: 650px) {
-    input {
-      font-size: 50px; } }
-  @media (min-width: 992px) {
-    input {
-      font-size: 60px; } }
-  input::placeholder {
-    color: #e6a769;
-    font-size: 30px; }
-    @media (min-width: 650px) {
-      input::placeholder {
-        font-size: 40px; } }
-    @media (min-width: 992px) {
-      input::placeholder {
-        font-size: 50px; } }
 .modal {
   display: none;
   justify-content: center;
@@ -199,6 +125,166 @@ input {
       text-decoration: none; }
   .feedback [class*="--error"] {
     background-color: #ffd5d5; }
+.recently-viewed h2 {
+  color: #ff9d3b;
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin: 80px 0 15px; }
+
+.recently-viewed ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin-bottom: 0; }
+  .recently-viewed ul li {
+    margin-right: 40px; }
+
+.recently-viewed p {
+  font-size: 1.2rem;
+  margin: 5px 0; }
+
+.recently-viewed p:first-child {
+  color: #ff9d3b; }
+
+.recently-viewed p:last-child {
+  color: #fff;
+  cursor: pointer; }
+.guitarists {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between; }
+  .guitarists-container {
+    width: 45%; }
+  .guitarists .guitarist-list {
+    position: absolute;
+    width: 45%;
+    min-height: 50px;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    background-color: #fff;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.3);
+    max-height: 330px;
+    overflow: scroll;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s;
+    border-radius: 0 0 4px 4px;
+    border-bottom: #ff9d3b 4px solid;
+    border-top: #FF9D3B 2px solid; }
+    .guitarists .guitarist-list li {
+      color: #ef7f10;
+      border-bottom: 1px solid #ececec; }
+      .guitarists .guitarist-list li:hover {
+        background-color: #fff9f3; }
+  .guitarists ul.active {
+    opacity: 1;
+    visibility: visible; }
+  .guitarists li {
+    padding: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    font-size: 22px; }
+    @media (min-width: 650px) {
+      .guitarists li {
+        font-size: 27px; } }
+    @media (min-width: 992px) {
+      .guitarists li {
+        font-size: 30px; } }
+  .guitarists li:last-child {
+    border: 0; }
+
+input {
+  font-size: 40px;
+  width: 100%;
+  margin-bottom: 0px;
+  background-color: #252525;
+  color: #ff9d3b;
+  border: 0;
+  border-bottom: 2px solid;
+  font-family: Barlow Condensed;
+  padding: 10px;
+  outline: none; }
+  @media (min-width: 650px) {
+    input {
+      font-size: 50px; } }
+  @media (min-width: 992px) {
+    input {
+      font-size: 60px; } }
+  input::placeholder {
+    color: #e6a769;
+    font-size: 30px; }
+    @media (min-width: 650px) {
+      input::placeholder {
+        font-size: 40px; } }
+    @media (min-width: 992px) {
+      input::placeholder {
+        font-size: 50px; } }
+#root {
+  width: 100%; }
+
+body {
+  background: #252525;
+  font-family: 'Barlow Condensed';
+  box-sizing: border-box;
+  font-size: 14px; }
+
+.content {
+  margin: 3% auto;
+  width: 100%; }
+  @media (min-width: 650px) {
+    .content {
+      width: 580px; } }
+  @media (min-width: 992px) {
+    .content {
+      width: 1000px; } }
+
+.amp {
+  background-color: #d7d8d6;
+  width: 335px;
+  height: 650px;
+  border-radius: 3px;
+  text-align: center;
+  margin: 0 auto; }
+  @media (min-width: 650px) {
+    .amp {
+      width: 580px;
+      height: 470px; } }
+  @media (min-width: 992px) {
+    .amp {
+      width: 1000px;
+      height: 300px; } }
+
+h1 {
+  font-size: 40px;
+  color: #ff9d3b;
+  font-weight: normal;
+  width: 100%;
+  margin: 0 auto 10px;
+  height: 80px; }
+  @media (min-width: 650px) {
+    h1 {
+      font-size: 45px;
+      margin: 0 0 10px;
+      height: 60px; } }
+  @media (min-width: 992px) {
+    h1 {
+      font-size: 50px; } }
+  h1 span {
+    color: #fff;
+    font-size: 30px;
+    display: block; }
+    @media (min-width: 650px) {
+      h1 span {
+        display: inline-block; } }
+
+.intro {
+  color: #ff9d3b;
+  font-size: 1.3rem;
+  margin: 0 0 15px; }
 .button-container {
   display: inline-block;
   position: relative;
@@ -423,89 +509,3 @@ button {
 a {
   text-decoration: none;
   display: block; }
-.recently-viewed h2 {
-  color: #ff9d3b;
-  font-size: 1.4rem;
-  font-weight: normal;
-  margin: 80px 0 15px; }
-
-.recently-viewed ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin-bottom: 0; }
-  .recently-viewed ul li {
-    margin-right: 40px; }
-
-.recently-viewed p {
-  font-size: 1.2rem;
-  margin: 5px 0; }
-
-.recently-viewed p:first-child {
-  color: #ff9d3b; }
-
-.recently-viewed p:last-child {
-  color: #fff;
-  cursor: pointer; }
-#root {
-  width: 100%; }
-
-body {
-  background: #252525;
-  font-family: 'Barlow Condensed';
-  box-sizing: border-box;
-  font-size: 14px; }
-
-.content {
-  margin: 3% auto;
-  width: 100%; }
-  @media (min-width: 650px) {
-    .content {
-      width: 580px; } }
-  @media (min-width: 992px) {
-    .content {
-      width: 1000px; } }
-
-.amp {
-  background-color: #d7d8d6;
-  width: 335px;
-  height: 650px;
-  border-radius: 3px;
-  text-align: center;
-  margin: 0 auto; }
-  @media (min-width: 650px) {
-    .amp {
-      width: 580px;
-      height: 470px; } }
-  @media (min-width: 992px) {
-    .amp {
-      width: 1000px;
-      height: 300px; } }
-
-h1 {
-  font-size: 40px;
-  color: #ff9d3b;
-  font-weight: normal;
-  width: 100%;
-  margin: 0 auto 10px;
-  height: 80px; }
-  @media (min-width: 650px) {
-    h1 {
-      font-size: 45px;
-      margin: 0 0 10px;
-      height: 60px; } }
-  @media (min-width: 992px) {
-    h1 {
-      font-size: 50px; } }
-  h1 span {
-    color: #fff;
-    font-size: 30px;
-    display: block; }
-    @media (min-width: 650px) {
-      h1 span {
-        display: inline-block; } }
-
-.intro {
-  color: #ff9d3b;
-  font-size: 1.3rem;
-  margin: 0 0 15px; }

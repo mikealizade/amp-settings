@@ -1,5 +1,5 @@
-import { atom, atomFamily, selector } from 'recoil';
-import { fetchAllGuitarists, sendEmail } from './App.api.js';
+import { atom, selector } from 'recoil';
+import { fetchAllGuitarists } from './App.api';
 
 export const formState = atom({
   key: 'formState',

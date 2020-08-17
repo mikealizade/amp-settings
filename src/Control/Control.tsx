@@ -1,11 +1,16 @@
 import React from 'react';
 import './Control.scss';
 
-const convert = level => {
+interface Control {
+  type: string,
+  level: number
+}
+
+const convert = (level: number) => {
   return level % 1 !== 0 ? String(level).replace('.', '-') : level;
 };
 
-export const Control = ({ type, level }) => (
+export const Control = ({ type, level }: Control) => (
   <div className='button-container'>
     <p className='type'>{type}</p>
     <span className='peg zero'>0</span>

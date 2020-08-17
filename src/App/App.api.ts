@@ -1,16 +1,20 @@
 import http from '../http';
 
+interface Email {
+  name: string,
+  message: string,
+}
+
 export const fetchAllGuitarists = async () => {
   try {
     const response = await http.fetch('/guitarists');
     return await response.json();
-    console.log('response', response);
   } catch (error) {
     console.log('error retrieving guitarists', error);
   }
 };
 
-export const sendEmail = async ({ name, message }) => {
+export const sendEmail = async ({ name, message }: Email) => {
   try {
     const data = {
       name,
@@ -18,10 +22,7 @@ export const sendEmail = async ({ name, message }) => {
     };
 
     const response = await http.post('/send', data);
-    debugger;
-    const r = await response.json();
-
-    return r;
+    return await response.json();
   } catch (error) {
     console.log('error sending mail', error);
   }

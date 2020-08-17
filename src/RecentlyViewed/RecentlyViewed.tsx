@@ -1,10 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useRecoilValue } from 'recoil';
 import { recentlyViewedState } from '../App/App.atoms';
 import './RecentlyViewed.scss';
 
-export const RecentlyViewed = ({ selectSong }) => {
+interface Song {
+  song: string,
+  gain: number,
+  treble: number,
+  mid: number,
+  bass: number,
+  volume: number,
+  reverb: number,
+  isMulti?: boolean
+}
+
+interface SelectSong {
+  selectSong: (name: string, song: Song) => void
+}
+
+interface Viewed {
+  name: string,
+  song: Song,
+}
+
+export const RecentlyViewed = ({ selectSong }: SelectSong) => {
   const viewed = useRecoilValue(recentlyViewedState);
 
   return (
@@ -12,7 +31,7 @@ export const RecentlyViewed = ({ selectSong }) => {
       {!!viewed.length && <h2>Recently Viewed</h2>}
       <ul>
         {
-          viewed.map(({ name, song }, i) => {
+          viewed.map(({ name, song }: Viewed, i) => {
             if (i < 4) {
               return (
                 <li key={`${song.song}-${i}`}>
@@ -21,6 +40,7 @@ export const RecentlyViewed = ({ selectSong }) => {
                 </li>
               );
             }
+            return null
           })
         }
       </ul>

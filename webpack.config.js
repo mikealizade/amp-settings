@@ -12,7 +12,7 @@ module.exports = {
   context: path.join(__dirname, 'src'),
   entry: [
     'babel-polyfill',
-    './index.js'
+    './index.tsx'
   ],
   output: {
     path: path.join(__dirname, 'public'),
@@ -20,6 +20,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader'
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -75,6 +79,7 @@ module.exports = {
     // new webpack.DefinePlugin(envKeys)
   ],
   resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
     modules: [
       path.join(__dirname, 'node_modules')
     ]

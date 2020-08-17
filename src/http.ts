@@ -2,11 +2,11 @@ const BASE_ENDPOINT_URL = process.env.NODE_ENV === 'development' ? 'http://local
 
 export default {
 
-  fetch (url) {
+  fetch (url: string) {
     return fetch(BASE_ENDPOINT_URL + url);
   },
 
-  put (url, data = {}, contentType = 'application/json') {
+  put (url: string, data = {}, contentType = 'application/json') {
     const options = {
       method: 'put',
       headers: {
@@ -18,7 +18,7 @@ export default {
     return fetch(BASE_ENDPOINT_URL + url, options);
   },
 
-  post (url, data = {}, contentType = 'application/json') {
+  post (url: string, data = {}, contentType = 'application/json') {
     const options = {
       method: 'post',
       headers: {
@@ -30,7 +30,7 @@ export default {
     return fetch(BASE_ENDPOINT_URL + url, options);
   },
 
-  delete (url, data = {}, contentType = 'application/json') {
+  delete (url: string, data = {}, contentType = 'application/json') {
     const options = {
       method: 'delete',
       headers: {
