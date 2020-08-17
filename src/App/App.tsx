@@ -10,13 +10,6 @@ import { RecentlyViewed } from '../RecentlyViewed/RecentlyViewed';
 import { fetchGuitarists, recentlyViewedState } from './App.atoms';
 import './App.scss';
 
-interface AmpSetting {
-  name: string,
-  songs: Song[],
-  prevSongs: Song[],
-  isMulti?: boolean
-}
-
 interface SelectGuitarist {
   name: string,
   songs: Song[]
@@ -66,7 +59,7 @@ export const App = () => {
     volume: 0,
     reverb: 0
   }
-  
+
   const selectGuitarist = ({ name, songs }: SelectGuitarist) => {
     setAmpSetting({
       ...ampSetting,
